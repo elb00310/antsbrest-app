@@ -36,7 +36,7 @@ module.exports=(env,argv)=> ({
             },
             {
                 test: /\.scss$/i,
-                use: [MiniCssPlugin.lolader, {
+                use: [MiniCssPlugin.loader, {
                     loader: 'css-loader',
                     options: {
                         url: false

@@ -4,18 +4,33 @@ export class Component{
     constructor(
         public parrent: HTMLElement,
         tegName:keyof HTMLElementTagNameMap,
-        content?: string | null
+        arrStyles?: string[]|null,
+        content?: string | null,
+        arrProp?: string[]|null,
+        arrValue?: string[]|null
     ){
         this.root = document.createElement(tegName);
+        if (arrStyles) {
+            arrStyles.forEach((nameStyle)=>{
+                this.root.classList.add(nameStyle);
+
+            });
+        }
         if (content) this.root.innerHTML = content;
-        this.myRender();
+        if (arrProp && arrValue && arrProp.length === arrValue.length){
+            arrProp.forEach((prop,i) => {
+                this.root.setAttribute(prop,arrValue[i]);
+            });
+        }
+        this.Render();
     }
 
-    myRemove(){
+
+    Remove(){
         this.root.remove();
     }
 
-    myRender(){
+    Render(){
         this.parrent.append(this.root);
     }
 }

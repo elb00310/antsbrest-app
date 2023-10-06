@@ -1,18 +1,32 @@
-import { Component } from './Abstract/Component';
 import './style.scss';
+import { Component } from './Abstract/Component';
+import {Header} from './Common/Header';
+import { Pages } from './Pages/pages';
+import { Footer } from './Common/Footer';
+import { Goods } from './Pages/goods';
+import { Basket } from './Pages/basket';
+import { Profile } from './Pages/profile';
+import { Reg } from './Pages/reg';
+
 const body = document.body;
-const prg = new Component(body,"p","hello");
 
-const btn1 = new Component(body,"button","показать");
-const btn2 =new Component(body,"button","скрыть");
-
-
-btn1.root.onclick = () =>{
-    prg.myRender();
+class App{
+    constructor(parrent: HTMLElement){
+        const wrap = new Component(parrent, 'div', ['wrap']);
+        new Header(wrap.root);
+        new Pages (wrap.root);
+        new Goods (wrap.root);
+        new Basket (wrap.root);
+        new Profile (wrap.root);
+        new Reg (wrap.root);
+        new Footer(wrap.root);
+    }
 }
 
-btn2.root.onclick = () =>{
-    prg.myRemove();
+declare global{
+    interface Window{
+        app: App;
+    }
 }
 
-
+window.app=new App(document.body);
