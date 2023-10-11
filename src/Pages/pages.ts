@@ -8,5 +8,8 @@ export class Pages extends Component{
         new Component(this.root,'p',["texthero"],'Врачи ветеринарной клиники «Альфа-Вет» всегда готовы помочь вашему домашнему любимцу справиться с недугом, а также проконсультировать вас по всем волнующим вопросам');
         const kn=new Component(this.root,'button',['btn']);
         new Component(kn.root,'div',['textkn'],'Каталог услуг');
+        kn.root.addEventListener("click", () => {
+            window.location.hash = '#goods'
+      })
     }
 }

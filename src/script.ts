@@ -7,18 +7,29 @@ import { Goods } from './Pages/goods';
 import { Basket } from './Pages/basket';
 import { Profile } from './Pages/profile';
 import { Reg } from './Pages/reg';
+import { Router } from './Common/Router';
 
 const body = document.body;
 
 class App{
     constructor(parrent: HTMLElement){
         const wrap = new Component(parrent, 'div', ['wrap']);
+      
         new Header(wrap.root);
-        new Pages (wrap.root);
-        new Goods (wrap.root);
-        new Basket (wrap.root);
-        new Profile (wrap.root);
-        new Reg (wrap.root);
+
+
+        const main =new Component(wrap.root, "main");
+
+        const links = {
+            '#': new Pages(main.root),
+            '#goods': new Goods(main.root),
+            '#basket':new Basket(main.root),
+            '#profile':new Profile(main.root),
+            '#reg':new Reg(main.root),
+        }
+        
+        
+        new Router (links);
         new Footer(wrap.root);
     }
 }
