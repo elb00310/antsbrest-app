@@ -1,4 +1,5 @@
 import { Component } from "../Abstract/Component";
+import {getAuth} from "firebase/auth";
 
 export class Header extends Component{
     constructor(parrent: HTMLElement){
@@ -17,9 +18,17 @@ export class Header extends Component{
         const personalAcc = new Component(this.root,'img',['icon1'],null,['src','alt'],['./assets/svg/person.svg','icon']);
         const bask = new Component(this.root,'img',['icon2'],null,['src','alt'],['./assets/svg/shopping-basket.svg','icon']);
         
+        const url = window.location.hash.slice(1);
+        const auth=getAuth();
+        const user = auth.currentUser;
         personalAcc.root.addEventListener("click", () => {
-              window.location.hash = '#profile'
-        })
+            if (!user){
+                  window.location.hash = '#reg'
+                  } else {
+                  window.location.hash = '#profile'
+                  }
+      })
+        
         logo.root.addEventListener("click", () => {
             window.location.hash = '#'
       })

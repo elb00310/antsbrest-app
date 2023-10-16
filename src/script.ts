@@ -8,8 +8,12 @@ import { Basket } from './Pages/basket';
 import { Profile } from './Pages/profile';
 import { Reg } from './Pages/reg';
 import { Router } from './Common/Router';
+import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from '../configFB';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const body = document.body;
+initializeApp(firebaseConfig);
 
 class App{
     constructor(parrent: HTMLElement){
@@ -40,4 +44,8 @@ declare global{
     }
 }
 
-window.app=new App(document.body);
+
+const auth = getAuth();
+onAuthStateChanged(auth,(user)=>{
+    if (!window.app) window.app=new App(document.body);
+});
