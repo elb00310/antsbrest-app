@@ -1,0 +1,88 @@
+
+@font-face { 
+    font-family: "Comfortaa_reg"; 
+    src: url("./assets/fonts/Comfortaa-Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+@font-face {         
+    font-family: "Comfortaa_bold";  
+    src: url("./assets/fonts/Comfortaa-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+ @font-face { 
+    font-family: "Dejavu_reg"; 
+    src: url("./assets/fonts/DejaVuSans.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
+} 
+@font-face { 
+    font-family: "Dejavu_bold"; 
+    src: url("./assets/fonts/DejaVuSans-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
+}
+.footer{ 
+    background-color: #fff;
+    width: 1440px;
+    height: 101px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.5);
+    font-family: "Dejavu_reg";
+    position: absolute;
+    top: 1326.3px;
+    margin: auto;
+  }
+  .infofut{
+    font-style: oblique;
+      position: absolute;
+      top: 12px;
+      left: 24px;
+      width: 244px;
+      height: 77px;
+      overflow: hidden;
+    }
+  
+  .foo,
+  .foo1,
+  .foo2 {
+    position: absolute;
+    width: 84.02%;
+    top: -11px;
+    left: 0;
+    line-height: 50px;
+    display: inline-block;
+    height: 48px;
+  }
+  .foo1,
+  .foo2 {
+    width: 81.15%;
+    top: 13px;
+  }
+  .foo2 {
+    width: 102.87%;
+    top: 40px;
+  }
+  
+  .fam {
+      position: absolute;
+      top: 27px;
+      left: 576px;
+      font-size: 23px;
+      line-height: 50px;
+      display: inline-block;
+      width: 316px;
+      height: 42px;
+    }
+    .footchild {
+      position: absolute;
+      top: 0.5px;
+      left: -0.5px;
+      border-top: 1px solid rgba(0, 0, 0, 0.2);
+      box-sizing: border-box;
+      width: 1441px;
+      height: 1px;
+    }

@@ -1,6 +1,5 @@
 import { Component } from "../Abstract/Component";
 import {getAuth} from "firebase/auth";
-
 export class Header extends Component{
     constructor(parrent: HTMLElement){
         super(parrent, 'div', ['header']);
@@ -35,7 +34,5 @@ export class Header extends Component{
       bask.root.addEventListener("click", () => {
             window.location.hash = '#basket'
       })
-
-
 }
 }

@@ -26,7 +26,6 @@ export class Profile extends Component{
         new Component(shapka.root,'p',['shapkatext2'],'Цена');
         new Component(shapka.root,'p',['shapkatext3'],'Количество');
         new Component(shapka.root,'p',['shapkatext4'],'Стоимость');
-
     }
     outFromGoogle(): void{
         const auth=getAuth();

@@ -1,0 +1,201 @@
+
+@font-face { 
+    font-family: "Comfortaa_reg"; 
+    src: url("./assets/fonts/Comfortaa-Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+@font-face {         
+    font-family: "Comfortaa_bold";  
+    src: url("./assets/fonts/Comfortaa-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+ @font-face { 
+    font-family: "Dejavu_reg"; 
+    src: url("./assets/fonts/DejaVuSans.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
+} 
+@font-face { 
+    font-family: "Dejavu_bold"; 
+    src: url("./assets/fonts/DejaVuSans-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
+}
+.profile{
+    position: relative;
+    background-color: #a7c4e5;
+    width: 1440px;
+    height: 1274px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 30px;
+    color: #000;
+    font-family: "Dejavu_reg";
+  }
+  .usinf{
+    top: 506px;
+    left: 24px;
+    width: 466px;
+    height: 89px;
+    text-align: left;
+    position: absolute;
+  }
+  .usinf1,
+  .usinf2{
+    font-weight:900;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    letter-spacing: 1.11px;
+    display: inline-block;
+    width: 122px;
+    height: 32px;
+  }
+  .usinf1{
+    top: 0;
+    left: -6px;
+    text-align: center;
+    width: 98px;
+    height: 50px;
+  }
+  .proftext{
+    position: absolute;
+    top: 61px;
+    left: 535px;
+    font-size: 55px;
+    letter-spacing: 1.11px;
+    font-family: "Comfortaa_bold";
+  }
+  .zakazinf{
+    position: absolute;
+    top: 797px;
+    left: 522px;
+    width: 441px;
+    height: 102px;
+  }
+  .zakazinf1,
+  .zakazinf2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 150%;
+  }
+  .zakazinf2{
+    top: 57px;
+  }
+  .stat{
+    position: absolute;
+    top: 205px;
+    left: 732px;
+    width: 422px;
+    height: 59px;
+    font-size: 40px;
+  }
+  .stattext{
+    top: -14px;
+    left: -22px;
+    text-decoration: underline;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 466px;
+    height: 73px;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .statpict{
+    position: absolute;
+    top: 286px;
+    left: 517px;
+    width: 851px;
+    height: 498px;
+    object-fit: cover;
+  }
+  .outButton{
+    position: absolute;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: #6c9dd3;
+    width: 13.19%;
+    top: 667px;
+    right: 76.46%;
+    left: 10.35%;
+    border-radius: 8px;
+    height: 55px;
+    font-size: 20px;
+    line-height: 50px;
+    display: inline-block;
+    font-family: "Comfortaa_bold";
+    color: #000;
+    text-align: center;
+    height: 50px;
+  }
+  .outButton:hover {
+    background-color: #d9e6f4;
+  }
+  .hist{
+    top: 994px;
+    left: 72px;
+    width: 1296px;
+    height: 157px;
+    font-size: 24px;
+    position: absolute;
+  }
+  .shapka{
+    position: absolute;
+    top: 61px;
+    left: 0;
+    border-radius: 15px;
+    width: 1296px;
+    height: 96px;
+    overflow: hidden;
+  }
+  .shapkafon{
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 15px;
+    background-color: #fff;
+    width: 1296px;
+    height: 98px;
+  }
+
+  .shapkatext1 {
+    top: 26px;
+    left: -9px;
+    font-size: 32px;
+  }
+  .shapkatext1,
+  .shapkatext2,
+  .shapkatext3,
+  .shapkatext4 {
+    font-family: "Dejavu_bold";
+    position: absolute;
+    letter-spacing: 1.11px;
+    display: inline-block;
+    width: 257px;
+    height: 57px;
+  }
+  .shapkatext2 {
+    top: calc(50% - 13px);
+    left: calc(50% - 91px);
+  }
+  .shapkatext3,
+  .shapkatext4 {
+    top: calc(50% - 15px);
+    left: 1029px;
+  }
+  .shapkatext4 {
+    top: calc(50% - 13px);
+    left: 796px;
+  }
+  .histtex{
+    top: 0;
+    left: 10px;
+    font-size: 30px;
+    line-height: 150%;
+    position: absolute;
+  }

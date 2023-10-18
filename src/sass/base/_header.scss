@@ -1,0 +1,127 @@
+
+@font-face { 
+    font-family: "Comfortaa_reg"; 
+    src: url("./assets/fonts/Comfortaa-Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+@font-face {         
+    font-family: "Comfortaa_bold";  
+    src: url("./assets/fonts/Comfortaa-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+ @font-face { 
+    font-family: "Dejavu_reg"; 
+    src: url("./assets/fonts/DejaVuSans.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
+} 
+@font-face { 
+    font-family: "Dejavu_bold"; 
+    src: url("./assets/fonts/DejaVuSans-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
+}
+.icon {
+    top: 16px;
+    left: 62px;
+    width: 117px;
+    height: 100px;
+    object-fit: cover;
+    position: absolute;
+  }
+.title{
+    font-family: "Comfortaa_bold";
+    width: 27.24%;
+    top: 56px;
+    left: 11.81%;
+    line-height: 50px;
+    display: inline-block;
+    height: 53px;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    position: absolute;
+  }
+.info {
+    font-family: "Comfortaa_reg";
+    top: 10px;
+    left: 620px;
+    width: 200px;
+    height: 134px;
+    text-align: left;
+    font-size: 23px;
+    position: absolute;
+    color:black;
+}
+
+.inf,
+.inf1 {
+  left: 7.5%;
+  line-height: 50px;
+  display: inline-block;
+}
+.inf {
+  position: absolute;
+  width: 89%;
+  top: -3px;
+  height: 48px;
+}
+.inf1 {
+  width: 119%;
+  top: 41px;
+  height: 43px;
+}
+.inf1,
+.inf2 {
+  position: absolute;
+}
+.inf2 {
+  width: 102%;
+  top: 84px;
+  left: 7.5%;
+  line-height: 50px;
+  display: inline-block;
+  height: 40px;
+}
+.infchild{
+    top: -0.5px;
+    left: -0.5px;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    width: 1px;
+    height: 135px;
+    position: absolute;
+  }
+
+  .icon1,
+  .icon2 {
+    position: absolute;
+    height: 32.69%;
+    width: 3.52%;
+    top: 37.42%;
+    right: 11.41%;
+    bottom: 29.89%;
+    left: 85.07%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+  }
+  .icon2 {
+    height: 65px;
+    width: 64px;
+    right: 4.27%;
+    bottom: 31.94%;
+    left: 91.91%;
+    top: 50px;
+  }
+.header{
+    position: relative;
+    background-color: #d9e6f4;
+    width: 1440px;
+    height: 155px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 40px;
+    color: #4656a1;
+    // font-family: var(--font-comfortaa);
+  }

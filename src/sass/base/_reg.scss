@@ -1,0 +1,71 @@
+
+@font-face { 
+    font-family: "Comfortaa_reg"; 
+    src: url("./assets/fonts/Comfortaa-Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+@font-face {         
+    font-family: "Comfortaa_bold";  
+    src: url("./assets/fonts/Comfortaa-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+ @font-face { 
+    font-family: "Dejavu_reg"; 
+    src: url("./assets/fonts/DejaVuSans.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
+} 
+@font-face { 
+    font-family: "Dejavu_bold"; 
+    src: url("./assets/fonts/DejaVuSans-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
+}
+
+.title_reg{
+    position: absolute;
+    top: 124px;
+    left: calc(50% + 99px);
+  }
+  .dogpict{
+    position: absolute;
+    top: 87px;
+    left: 0;
+    width: 739px;
+    height: 1112px;
+    object-fit: cover;
+  }
+  .reg{
+    position: relative;
+    background-color: #a7c4e5;
+    width: 1440px;
+    height: 1198px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 60px;
+    color: #000;
+    font-family: "Comfortaa_reg";
+  }
+  .regbutton{
+    position: absolute;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: #6c9dd3;
+    width: 20.9%;
+    top: 509px;
+    right: 17.43%;
+    left: 61.67%;
+    border-radius: 8px;
+    height: 102px;
+    font-family: "Comfortaa_reg";
+    color: #000;
+    text-align: center;
+    font-size: 40px;
+    line-height: 40px;
+  }
+  .regbutton:hover {
+    background-color: #d9e6f4;
+  }
