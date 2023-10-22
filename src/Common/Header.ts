@@ -18,14 +18,14 @@ export class Header extends Component{
         const personalAcc = new Component(this.root,'img',['icon1'],null,['src','alt'],['./assets/svg/person.svg','icon']);
         const bask = new Component(this.root,'img',['icon2'],null,['src','alt'],['./assets/svg/shopping-basket.svg','icon']);
         
-        const user = this.services.logicService.user;
+        const user = this.services.authService.user;
         if (user) {
             bask.Render()
          } else {
             bask.Remove();
          }
         
-         this.services.logicService.addListener('userAuth',(isAuthUser)=>{
+         this.services.authService.addListener('userAuth',(isAuthUser)=>{
             if (isAuthUser){
                 bask.Render();
             } else {

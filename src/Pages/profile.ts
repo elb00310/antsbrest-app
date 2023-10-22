@@ -17,7 +17,7 @@ export class Profile extends Component{
         new Component(this.root,'img',['statpict'],null,['src','alt'],['./assets/png/stat.png','icon']);
         this.outButton = new Component(this.root, 'input',["outButton"],null,['type','value'],['button','Выйти']);
         this.outButton.root.onclick = () =>{
-            this.services.logicService.outFromGoogle();
+            this.services.authService.outFromGoogle();
            };
         const hist = new Component(this.root,'div',['hist']);
         new Component(hist.root,'p',['histtex'],'История закзов: ');

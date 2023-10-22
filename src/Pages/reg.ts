@@ -9,13 +9,13 @@ export class Reg extends Component{
         new Component(this.root, 'img', ["dogpict"],null,['src','alt'],['./assets/png/dogreg.png','icon'] );
         this.regButton = new Component(this.root, 'input',["regbutton"],null,['type','value'],['button','Войти']);
         this.regButton.root.onclick = () =>{
-        this.services.logicService.authWithGoogle();
+        this.services.authService.authWithGoogle();
        }
-       this.services.logicService.addListener('userAuth',(isAuthUser)=>{
-        if (isAuthUser){
+    //    this.services.authService.addListener('userAuth',(isAuthUser)=>{
+    //     if (isAuthUser){
             
-        }
-       })
+    //     }
+    //    })
     }
    
     

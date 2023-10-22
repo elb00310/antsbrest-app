@@ -16,7 +16,7 @@ export class Router {
         const url = window.location.hash.slice(1);
         // const auth=getAuth();
         // const user = auth.currentUser;
-        const user = this.services.logicService.user;
+        const user = this.services.authService.user;
         if ((url === 'basket' && !user)||(url === 'profile' && !user)){
         this.links['#reg'].Render();
         } else {
