@@ -1,6 +1,7 @@
 import { Component } from "../Abstract/Component";
+import { TServices } from "../Types";
 export class Pages extends Component{
-    constructor(parrent:HTMLElement){
+    constructor(parrent:HTMLElement, private services:TServices){
         super(parrent, 'div',['pages']);
         new Component(this.root, 'img', ["anim"],null,['src','alt'],['./assets/png/animals.png','icon'] );
         new Component(this.root, 'img', ["fon"],null,['src','alt'],['./assets/png/fon.png','icon'] );

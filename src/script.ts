@@ -11,22 +11,27 @@ import { Router } from './Common/Router';
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from '../configFB';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { LogicService } from './Services/LogicService';
 const body = document.body;
 initializeApp(firebaseConfig);
+
+const services={
+    logicService: new LogicService()
+}
 class App{
     constructor(parrent: HTMLElement){
         const wrap = new Component(parrent, 'div', ['wrap']);
-        new Header(wrap.root);
+        new Header(wrap.root,services);
         const main =new Component(wrap.root, "main");
         const links = {
-            '#': new Pages(main.root),
-            '#goods': new Goods(main.root),
-            '#basket':new Basket(main.root),
-            '#profile':new Profile(main.root),
-            '#reg':new Reg(main.root),
+            '#': new Pages(main.root,services),
+            '#goods': new Goods(main.root,services),
+            '#basket':new Basket(main.root,services),
+            '#profile':new Profile(main.root,services),
+            '#reg':new Reg(main.root,services),
         }
         
-        new Router (links);
+        new Router (links,services);
         new Footer(wrap.root);
     }
 }
@@ -37,5 +42,6 @@ declare global{
 }
 const auth = getAuth();
 onAuthStateChanged(auth,(user)=>{
+    services.logicService.user = user;
     if (!window.app) window.app=new App(document.body);
 });

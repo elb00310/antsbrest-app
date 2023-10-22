@@ -1,7 +1,8 @@
 import { Component } from "../Abstract/Component";
-import {getAuth} from "firebase/auth";
+// import {getAuth} from "firebase/auth";
+import { TServices } from "../Types";
 export class Header extends Component{
-    constructor(parrent: HTMLElement){
+    constructor(parrent: HTMLElement, private services:TServices){
         super(parrent, 'div', ['header']);
         
         const logo = new Component(this.root, 'img', ["icon"],null,['src','alt'],['./assets/png/logo.png','icon'] );
@@ -17,9 +18,25 @@ export class Header extends Component{
         const personalAcc = new Component(this.root,'img',['icon1'],null,['src','alt'],['./assets/svg/person.svg','icon']);
         const bask = new Component(this.root,'img',['icon2'],null,['src','alt'],['./assets/svg/shopping-basket.svg','icon']);
         
+        const user = this.services.logicService.user;
+        if (user) {
+            bask.Render()
+         } else {
+            bask.Remove();
+         }
+        
+         this.services.logicService.addListener('userAuth',(isAuthUser)=>{
+            if (isAuthUser){
+                bask.Render();
+            } else {
+                bask.Remove(); 
+            }
+           })
+        
         const url = window.location.hash.slice(1);
-        const auth=getAuth();
-        const user = auth.currentUser;
+      //   const auth=getAuth();
+      //   const user = auth.currentUser;
+      //const user = this.services.logicService.user;
         personalAcc.root.addEventListener("click", () => {
             if (!user){
                   window.location.hash = '#reg'
@@ -28,6 +45,8 @@ export class Header extends Component{
                   }
       })
         
+
+
         logo.root.addEventListener("click", () => {
             window.location.hash = '#'
       })

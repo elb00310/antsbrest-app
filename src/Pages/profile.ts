@@ -1,8 +1,9 @@
 import { Component } from "../Abstract/Component";
-import {getAuth, signInWithPopup, GoogleAuthProvider, signOut} from "firebase/auth";
+// import {getAuth, signInWithPopup, GoogleAuthProvider, signOut} from "firebase/auth";
+import { TServices } from "../Types";
 export class Profile extends Component{
     outButton:Component;
-    constructor(parrent:HTMLElement){
+    constructor(parrent:HTMLElement, private services:TServices){
         super(parrent, 'div', ['profile']);
         const usinf = new Component(this.root,'div',['usinf']);
         new Component(usinf.root,'p',['usinf1'],'Имя: ');
@@ -16,7 +17,7 @@ export class Profile extends Component{
         new Component(this.root,'img',['statpict'],null,['src','alt'],['./assets/png/stat.png','icon']);
         this.outButton = new Component(this.root, 'input',["outButton"],null,['type','value'],['button','Выйти']);
         this.outButton.root.onclick = () =>{
-            this.outFromGoogle();
+            this.services.logicService.outFromGoogle();
            };
         const hist = new Component(this.root,'div',['hist']);
         new Component(hist.root,'p',['histtex'],'История закзов: ');
@@ -27,14 +28,5 @@ export class Profile extends Component{
         new Component(shapka.root,'p',['shapkatext3'],'Количество');
         new Component(shapka.root,'p',['shapkatext4'],'Стоимость');
     }
-    outFromGoogle(): void{
-        const auth=getAuth();
-        signOut(auth)
-            .then(()=> {
-                window.location.reload();
-            })
-            .catch((error)=>{
-                console.log('out bad'); 
-            });
-    }
+
 }
