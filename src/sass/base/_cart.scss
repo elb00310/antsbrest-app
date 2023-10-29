@@ -1,0 +1,95 @@
+@font-face { 
+    font-family: "Comfortaa_reg"; 
+    src: url("./assets/fonts/Comfortaa-Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+@font-face {         
+    font-family: "Comfortaa_bold";  
+    src: url("./assets/fonts/Comfortaa-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+ @font-face { 
+    font-family: "Dejavu_reg"; 
+    src: url("./assets/fonts/DejaVuSans.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
+} 
+@font-face { 
+    font-family: "Dejavu_bold"; 
+    src: url("./assets/fonts/DejaVuSans-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
+}
+.carts{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 138px;
+
+}
+.cart{
+    margin: 28px;
+    border: 2px solid #4656A1;
+    background: #8ADAF8;
+    display:block;
+    width: 233px;
+    height: 415px;
+}
+.namegood{
+    color: #4656A1;
+    text-align: center;
+    font-family: Comfortaa;
+    font-size: 29px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+}
+.imggood{
+    width: 229px;
+    height: 246px;
+    flex-shrink: 0;
+}
+
+.korzbtn{
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: 107px;
+    height: 41px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: #6C9DD3;
+}
+
+.korzbtntext{
+    font-family: Comfortaa;
+    width: 99px;
+    height: 47px;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-feature-settings: "haln" on;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 50px;
+}
+
+.oformprice{
+    text-shadow: 3px 3px 3px white;
+    font-weight: 600;
+    justify-content: center;
+    display: flex;
+    color: #000;
+    outline-color: #FFFFFF;
+    font-size: 24px;
+    font-family: "Dejavu_reg";
+    margin-top: 10px;
+}

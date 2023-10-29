@@ -1,0 +1,208 @@
+@font-face { 
+    font-family: "Comfortaa_reg"; 
+    src: url("./assets/fonts/Comfortaa-Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+@font-face {         
+    font-family: "Comfortaa_bold";  
+    src: url("./assets/fonts/Comfortaa-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+ @font-face { 
+    font-family: "Dejavu_reg"; 
+    src: url("./assets/fonts/DejaVuSans.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
+} 
+@font-face { 
+    font-family: "Dejavu_bold"; 
+    src: url("./assets/fonts/DejaVuSans-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
+}
+
+.goods{
+    background-color: #a7c4e5;
+    width:1440px;
+}
+
+.kopkfil{
+    position: relative;
+    width: 100%;
+    height: 110px;
+    overflow: hidden;
+    top:50px;
+}
+.kard{
+    position:absolute;
+    cursor: pointer;
+    border: 2px solid #4656a1;;
+    padding: 0;
+    width: 15.28%;
+    top: 28px;
+    right: 52.36%;
+    left: 32.36%;
+    box-sizing: border-box;
+    height: 55px;
+}
+
+.fil2{
+    position:absolute;
+    top: calc(50% - 20.5px);
+    left: calc(50% - 74px);
+    font-size: 20px;
+    line-height: 40px;
+    font-family: "Comfortaa_bold";
+    color: #000;
+    text-align: center;
+    display: inline-block;
+    width: 147px;
+}
+
+.vsekat{
+    position:absolute;
+    cursor: pointer;
+    border: 2px solid #4656a1;
+    padding: 0;
+    //background-color: #fff;
+    width: 15.28%;
+    top: 28px;
+    right: 72.22%;
+    left: 12.5%;
+    box-sizing: border-box;
+    height: 55px;
+}
+
+.fil1{
+    position:absolute;
+    top: calc(50% - 11.5px);
+    left: calc(50% - 110px);
+    font-size: 20px;
+    line-height: 23px;
+    display: inline-block;
+    font-family: "Comfortaa_bold";
+    color: #000;
+    text-align: center;
+    width: 220px;
+}
+
+.vakc{
+    position:absolute;
+    cursor: pointer;
+    border: 2px solid #4656a1;
+    padding: 0;
+    //background-color: #d9e6f4;
+    width: 15.28%;
+    top: 28px;
+    right: 32.5%;
+    left: 52.22%;
+    box-sizing: border-box;
+    height: 55px;
+}
+.fil3{
+    position:absolute;
+    top: 18px;
+    left: calc(50% - 69px);
+    font-size: 20px;
+    font-family: "Comfortaa_bold";
+    color: #000;
+    text-align: center;
+    display: inline-block;
+    width: 137px;
+}
+
+.derm{
+    position:absolute;
+    cursor: pointer;
+    border: 2px solid #4656a1;
+    padding: 0;
+    //background-color: #d9e6f4;
+    width: 15.28%;
+    top: 28px;
+    right: 12.64%;
+    left: 72.08%;
+    box-sizing: border-box;
+    height: 55px;
+}
+.fil4{
+    position:absolute;
+    top: calc(50% - 20.5px);
+    left: calc(50% - 80px);
+    font-size: 20px;
+    line-height: 40px;
+    font-family: "Comfortaa_bold";
+    color: #000;
+    text-align: center;
+    display: inline-block;
+    width: 160px;
+}
+
+
+// .kard:hover,
+// .vakc:hover,
+// .derm:hover,
+// .vsekat:hover {
+//   background-color: #d9e6f4;;
+// }
+
+
+.kopksort{
+    position: relative;
+    width: 100%;
+    height: 33px;
+    text-align: center;
+    font-size: 20px;
+    color: #000;
+    font-family: "Comfortaa_bold";
+    top: 95px;
+}
+
+.cena{
+    position: absolute;
+    cursor: pointer;
+    border: 2px solid #4656a1;
+    padding: 0;
+    width: 182px;
+    height: 33px;
+    top: 0;
+    left: 638px;
+    box-sizing: border-box;
+    height: 33px;
+}
+
+.sort1,
+.sort2 {
+    position: absolute;
+    top: calc(50% - 11.5px);
+    left: calc(50% - 110px);
+    font-size: 20px;
+    line-height: 23px;
+    display: inline-block;
+    font-family: "Comfortaa_bold";
+    color: #000;
+    text-align: center;
+    width: 220px;
+}
+
+.naim{
+    position: absolute;
+    cursor: pointer;
+    border: 2px solid #4656a1;
+    padding: 0;
+    width: 182px;
+    height: 33px;
+    top: 0;
+    left: 839px;
+    box-sizing: border-box;
+    height: 33px;
+}
+.sorttitle{
+    position: absolute;
+    top: calc(50% - 11.5px);
+    left: calc(50% - 308.5px);
+    line-height: 23px;
+    display: inline-block;
+    width: 220px;
+}

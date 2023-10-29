@@ -3,7 +3,7 @@ import { Component } from './Abstract/Component';
 import {Header} from './Common/Header';
 import { Pages } from './Pages/pages';
 import { Footer } from './Common/Footer';
-import { Goods } from './Pages/goods';
+import { GoodsPage } from './Pages/goods';
 import { Basket } from './Pages/basket';
 import { Profile } from './Pages/profile';
 import { Reg } from './Pages/reg';
@@ -13,12 +13,18 @@ import { firebaseConfig } from '../configFB';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { LogicService } from './Services/LogicService';
 import { AuthService } from './Services/AuthService';
+import{ getFirestore} from 'firebase/firestore';
+import { DBService } from './Services/DBService';
+
 const body = document.body;
-initializeApp(firebaseConfig);
+// const DBFirestore = initializeApp(firebaseConfig);
+// const db = getFirestore(DBFirestore);
+const DBFirestore = initializeApp(firebaseConfig);
 
 const services={
     logicService: new LogicService(),
-    authService: new AuthService()
+    authService: new AuthService(),
+    dbService: new DBService(DBFirestore)
 }
 class App{
     constructor(parrent: HTMLElement){
@@ -27,7 +33,7 @@ class App{
         const main =new Component(wrap.root, "main");
         const links = {
             '#': new Pages(main.root,services),
-            '#goods': new Goods(main.root,services),
+            '#goods': new GoodsPage(main.root,services),
             '#basket':new Basket(main.root,services),
             '#profile':new Profile(main.root,services),
             '#reg':new Reg(main.root,services),
@@ -45,5 +51,12 @@ declare global{
 const auth = getAuth();
 onAuthStateChanged(auth,(user)=>{
     services.authService.user = user;
-    if (!window.app) window.app=new App(document.body);
+    services.dbService
+    .getDataUser(user)
+    .then(() => {
+        if (!window.app) window.app=new App(document.body);
+    })
+    .catch((error) =>{
+        console.log(error);
+    });
 });

@@ -44,8 +44,6 @@ export class Header extends Component{
                   window.location.hash = '#profile'
                   }
       })
-        
-
 
         logo.root.addEventListener("click", () => {
             window.location.hash = '#'
