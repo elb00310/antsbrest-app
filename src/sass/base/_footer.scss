@@ -1,28 +1,4 @@
 
-@font-face { 
-    font-family: "Comfortaa_reg"; 
-    src: url("./assets/fonts/Comfortaa-Regular.ttf") format("truetype"); 
-    font-style: normal; 
-    font-weight: normal; 
-    } 
-@font-face {         
-    font-family: "Comfortaa_bold";  
-    src: url("./assets/fonts/Comfortaa-Bold.ttf") format("truetype"); 
-    font-style: normal; 
-    font-weight: normal; 
-    } 
- @font-face { 
-    font-family: "Dejavu_reg"; 
-    src: url("./assets/fonts/DejaVuSans.ttf") format("truetype"); 
-    font-style: normal; 
-    font-weight: normal;         
-} 
-@font-face { 
-    font-family: "Dejavu_bold"; 
-    src: url("./assets/fonts/DejaVuSans-Bold.ttf") format("truetype"); 
-    font-style: normal; 
-    font-weight: normal;         
-}
 .footer{ 
     background-color: #fff;
     width: 1440px;
@@ -33,7 +9,6 @@
     color: rgba(0, 0, 0, 0.5);
     font-family: "Dejavu_reg";
     position: relative;
-    margin: auto;
   }
   .infofut{
     font-style: oblique;
@@ -85,3 +60,29 @@
       width: 1441px;
       height: 1px;
     }
+
+
+    @font-face { 
+      font-family: "Comfortaa_reg"; 
+      src: url("./assets/fonts/Comfortaa-Regular.ttf") format("truetype"); 
+      font-style: normal; 
+      font-weight: normal; 
+      } 
+  @font-face {         
+      font-family: "Comfortaa_bold";  
+      src: url("./assets/fonts/Comfortaa-Bold.ttf") format("truetype"); 
+      font-style: normal; 
+      font-weight: normal; 
+      } 
+   @font-face { 
+      font-family: "Dejavu_reg"; 
+      src: url("./assets/fonts/DejaVuSans.ttf") format("truetype"); 
+      font-style: normal; 
+      font-weight: normal;         
+  } 
+  @font-face { 
+      font-family: "Dejavu_bold"; 
+      src: url("./assets/fonts/DejaVuSans-Bold.ttf") format("truetype"); 
+      font-style: normal; 
+      font-weight: normal;         
+  }

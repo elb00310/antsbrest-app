@@ -1,28 +1,5 @@
 
-@font-face { 
-    font-family: "Comfortaa_reg"; 
-    src: url("./assets/fonts/Comfortaa-Regular.ttf") format("truetype"); 
-    font-style: normal; 
-    font-weight: normal; 
-    } 
-@font-face {         
-    font-family: "Comfortaa_bold";  
-    src: url("./assets/fonts/Comfortaa-Bold.ttf") format("truetype"); 
-    font-style: normal; 
-    font-weight: normal; 
-    } 
- @font-face { 
-    font-family: "Dejavu_reg"; 
-    src: url("./assets/fonts/DejaVuSans.ttf") format("truetype"); 
-    font-style: normal; 
-    font-weight: normal;         
-} 
-@font-face { 
-    font-family: "Dejavu_bold"; 
-    src: url("./assets/fonts/DejaVuSans-Bold.ttf") format("truetype"); 
-    font-style: normal; 
-    font-weight: normal;         
-}
+
 .icon {
     top: 16px;
     left: 62px;
@@ -125,3 +102,29 @@
     color: #4656a1;
     // font-family: var(--font-comfortaa);
   }
+
+
+  @font-face { 
+    font-family: "Comfortaa_reg"; 
+    src: url("./assets/fonts/Comfortaa-Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+@font-face {         
+    font-family: "Comfortaa_bold";  
+    src: url("./assets/fonts/Comfortaa-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+ @font-face { 
+    font-family: "Dejavu_reg"; 
+    src: url("./assets/fonts/DejaVuSans.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
+} 
+@font-face { 
+    font-family: "Dejavu_bold"; 
+    src: url("./assets/fonts/DejaVuSans-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
+}

@@ -17,8 +17,15 @@ export type TGood={
     id:string
 };
 
+
+export type TGoodBasket={
+    good: TGood;
+    count:number;
+};
+
 export type TDataUser={
     name: string;
     fotoUrl: string;
     email:string;
+    basket:TGoodBasket[];
 }

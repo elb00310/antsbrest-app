@@ -1,29 +1,4 @@
 
-@font-face { 
-    font-family: "Comfortaa_reg"; 
-    src: url("./assets/fonts/Comfortaa-Regular.ttf") format("truetype"); 
-    font-style: normal; 
-    font-weight: normal; 
-    } 
-@font-face {         
-    font-family: "Comfortaa_bold";  
-    src: url("./assets/fonts/Comfortaa-Bold.ttf") format("truetype"); 
-    font-style: normal; 
-    font-weight: normal; 
-    } 
- @font-face { 
-    font-family: "Dejavu_reg"; 
-    src: url("./assets/fonts/DejaVuSans.ttf") format("truetype"); 
-    font-style: normal; 
-    font-weight: normal;         
-} 
-@font-face { 
-    font-family: "Dejavu_bold"; 
-    src: url("./assets/fonts/DejaVuSans-Bold.ttf") format("truetype"); 
-    font-style: normal; 
-    font-weight: normal;         
-}
-
 .title_reg{
     position: absolute;
     top: 124px;
@@ -69,3 +44,29 @@
   .regbutton:hover {
     background-color: #d9e6f4;
   }
+
+
+  @font-face { 
+    font-family: "Comfortaa_reg"; 
+    src: url("./assets/fonts/Comfortaa-Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+@font-face {         
+    font-family: "Comfortaa_bold";  
+    src: url("./assets/fonts/Comfortaa-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+ @font-face { 
+    font-family: "Dejavu_reg"; 
+    src: url("./assets/fonts/DejaVuSans.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
+} 
+@font-face { 
+    font-family: "Dejavu_bold"; 
+    src: url("./assets/fonts/DejaVuSans-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
+}

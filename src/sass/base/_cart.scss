@@ -1,27 +1,3 @@
-@font-face { 
-    font-family: "Comfortaa_reg"; 
-    src: url("./assets/fonts/Comfortaa-Regular.ttf") format("truetype"); 
-    font-style: normal; 
-    font-weight: normal; 
-    } 
-@font-face {         
-    font-family: "Comfortaa_bold";  
-    src: url("./assets/fonts/Comfortaa-Bold.ttf") format("truetype"); 
-    font-style: normal; 
-    font-weight: normal; 
-    } 
- @font-face { 
-    font-family: "Dejavu_reg"; 
-    src: url("./assets/fonts/DejaVuSans.ttf") format("truetype"); 
-    font-style: normal; 
-    font-weight: normal;         
-} 
-@font-face { 
-    font-family: "Dejavu_bold"; 
-    src: url("./assets/fonts/DejaVuSans-Bold.ttf") format("truetype"); 
-    font-style: normal; 
-    font-weight: normal;         
-}
 .carts{
     display: flex;
     flex-direction: row;
@@ -55,29 +31,23 @@
 }
 
 .korzbtn{
+    position: relative;
+    left: 59px;
     cursor: pointer;
     margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
     width: 107px;
     height: 41px;
-    justify-content: center;
-    align-items: center;
     border-radius: 8px;
     background: #6C9DD3;
 }
 
 .korzbtntext{
+    top: -5px;
+    position: relative;
     font-family: Comfortaa;
-    width: 99px;
-    height: 47px;
-    flex-shrink: 0;
-    color: #000;
     text-align: center;
-    font-feature-settings: "haln" on;
+    //font-feature-settings: "haln" on;
     font-size: 16px;
-    font-style: normal;
     font-weight: 700;
     line-height: 50px;
 }
@@ -92,4 +62,29 @@
     font-size: 24px;
     font-family: "Dejavu_reg";
     margin-top: 10px;
+}
+
+@font-face { 
+    font-family: "Comfortaa_reg"; 
+    src: url("./assets/fonts/Comfortaa-Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+@font-face {         
+    font-family: "Comfortaa_bold";  
+    src: url("./assets/fonts/Comfortaa-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+ @font-face { 
+    font-family: "Dejavu_reg"; 
+    src: url("./assets/fonts/DejaVuSans.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
+} 
+@font-face { 
+    font-family: "Dejavu_bold"; 
+    src: url("./assets/fonts/DejaVuSans-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
 }

@@ -39,7 +39,6 @@ export class GoodsPage extends Component{
         }
 
 
-
     }
 
        

@@ -17,8 +17,6 @@ import{ getFirestore} from 'firebase/firestore';
 import { DBService } from './Services/DBService';
 
 const body = document.body;
-// const DBFirestore = initializeApp(firebaseConfig);
-// const db = getFirestore(DBFirestore);
 const DBFirestore = initializeApp(firebaseConfig);
 
 const services={

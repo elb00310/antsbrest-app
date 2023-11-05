@@ -1,0 +1,94 @@
+
+.cart_basket{
+    margin: 36px;
+    font-family: "Dejavu_reg";
+    position: relative;
+    border: 1px solid black;
+    box-sizing: border-box;
+    width: 993px;
+    height: 145px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 25px;
+    color: black;
+}
+
+.cart_basket_name{
+position: absolute;
+top: 27px;
+left: 10px;
+text-align: center;
+display: inline-block;
+width: 338px;
+height: 45px;
+}
+.cart_basket_del{
+    position: absolute;
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 0;
+    background-color: #6c9dd3;
+    width: 11.9%;
+    top: 78px;
+    right: 79.25%;
+    left: 8.85%;
+    border-radius: 8px;
+    box-sizing: border-box;
+    height: 44px;
+    font-size: 20px;
+}
+.cart_basket_del:hover {
+    background-color: #d9e6f4;
+  }
+.cart_basket_count{
+    display: flex;
+    position: absolute;
+    top: 28px;
+    left: 635px;
+    width: 84px;
+    height: 44px;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+}
+.cart_basket_sum{
+    position: absolute;
+    top: 48px;
+    left: 852px;
+    font-family: "Dejavu_bold";
+}
+
+.cenatovara{
+    position: absolute;
+    top: 49px;
+    left: 430px;
+}
+
+.liniya{
+    position: absolute;
+    top: 50.5px;
+    left: 6.5px;
+    border-top: 1px solid black;
+    box-sizing: border-box;
+    width: 75px;
+    height: 1px;
+}
+
+.plus,
+.minus{
+    cursor: pointer;
+}
+
+
+
+ @font-face { 
+    font-family: "Dejavu_reg"; 
+    src: url("./assets/fonts/DejaVuSans.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
+} 
+@font-face { 
+    font-family: "Dejavu_bold"; 
+    src: url("./assets/fonts/DejaVuSans-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal;         
+}
