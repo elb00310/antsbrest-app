@@ -9,8 +9,12 @@
     height: 110px;
     overflow: hidden;
     top:50px;
+    font-family: "Comfortaa_reg";
+    font-size: 20px;
 }
 .kard{
+    font-family: "Comfortaa_bold";
+    font-size: 20px;
     position:absolute;
     cursor: pointer;
     border: 2px solid #4656a1;;
@@ -37,6 +41,8 @@
 }
 
 .vsekat{
+    font-family: "Comfortaa_bold";
+    font-size: 20px;
     position:absolute;
     cursor: pointer;
     border: 2px solid #4656a1;
@@ -64,6 +70,8 @@
 }
 
 .vakc{
+    font-family: "Comfortaa_bold";
+    font-size: 20px;
     position:absolute;
     cursor: pointer;
     border: 2px solid #4656a1;
@@ -89,6 +97,8 @@
 }
 
 .derm{
+    font-family: "Comfortaa_bold";
+    font-size: 20px;
     position:absolute;
     cursor: pointer;
     border: 2px solid #4656a1;
@@ -134,7 +144,10 @@
     top: 95px;
 }
 
+
 .cena{
+    font-family: "Comfortaa_bold";
+    font-size: 20px;
     position: absolute;
     cursor: pointer;
     border: 2px solid #4656a1;
@@ -147,21 +160,18 @@
     height: 33px;
 }
 
-.sort1,
-.sort2 {
+.cena,
+.naim {
     position: absolute;
-    top: calc(50% - 11.5px);
     left: calc(50% - 110px);
     font-size: 20px;
-    line-height: 23px;
-    display: inline-block;
     font-family: "Comfortaa_bold";
-    color: #000;
     text-align: center;
-    width: 220px;
 }
 
 .naim{
+    font-family: "Comfortaa_bold";
+    font-size: 20px;
     position: absolute;
     cursor: pointer;
     border: 2px solid #4656a1;
@@ -176,12 +186,28 @@
 .sorttitle{
     position: absolute;
     top: calc(50% - 11.5px);
-    left: calc(50% - 308.5px);
+    left: 375px;
     line-height: 23px;
     display: inline-block;
     width: 220px;
 }
 
+.knopkisortfilt{
+    width: 100%;
+}
+
+.sortnastr{
+    border: 2px solid #4656a1;
+    left: 376px;
+    position: relative;
+    font-family: "Comfortaa_bold";
+    font-size: 25px;
+    cursor: pointer;
+    top:-34px;
+}
+.kopksortnastr{
+    width: 100%;
+}
 
 @font-face { 
     font-family: "Comfortaa_reg"; 

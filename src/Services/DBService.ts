@@ -1,10 +1,11 @@
 import {User } from "firebase/auth";
 import { FirebaseApp } from "firebase/app";
 import { Observer } from "./Observer";
-import { Firestore, getFirestore } from "firebase/firestore";
+import { Firestore, getFirestore, orderBy, query, limit, where } from "firebase/firestore";
 import { collection,doc,getDoc,getDocs,setDoc } from "firebase/firestore"; 
 import {getDownloadURL, getStorage, ref} from "firebase/storage"
-import {TDataUser, TGood, TGoodBasket} from "../Types"
+import {TCriteria, TDataUser, TGood, TGoodBasket} from "../Types"
+
 
 export class DBService extends Observer{
     private db: Firestore = getFirestore(this.DBFirestore);
@@ -37,8 +38,19 @@ export class DBService extends Observer{
         }
     }
 
-    async getAllGoods(): Promise<TGood[]> {
-        const querySnapshot = await getDocs(collection(this.db,"goods"));
+    async getAllGoods(criteria:TCriteria): Promise<TGood[]> {
+        const crit = [];
+        if(criteria.category != "vsekat") crit.push(where("category","==",criteria.category));
+
+        if(criteria.sort == "cena" && criteria.sortnastr=="up")  crit.push (orderBy("price","asc"));
+        if(criteria.sort == "cena" && criteria.sortnastr=="down")  crit.push (orderBy("price","desc"));
+
+        if(criteria.sort == "name" && criteria.sortnastr=="up")  crit.push (orderBy("name","asc"));
+        if(criteria.sort == "name" && criteria.sortnastr=="down")  crit.push (orderBy("name","desc"));
+
+
+        const q = query(collection(this.db,"goods"), ...crit);
+        const querySnapshot = await getDocs(q);
         const storage = getStorage();
         const goods = querySnapshot.docs.map(async(doc)=>{
             const data=doc.data();

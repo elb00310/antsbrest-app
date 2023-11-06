@@ -29,3 +29,9 @@ export type TDataUser={
     email:string;
     basket:TGoodBasket[];
 }
+
+export type TCriteria={
+    category:string,
+sort:string,
+sortnastr:string
+};
