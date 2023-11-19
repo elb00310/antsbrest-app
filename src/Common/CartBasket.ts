@@ -1,9 +1,11 @@
 import { Parser } from "webpack";
 import { Component } from "../Abstract/Component";
-import { TGood, TGoodBasket, TServices } from "../Types";
+import { TDataUser, TGood, TGoodBasket, TServices } from "../Types";
 
 export class CartBasket extends Component {
     btnDel:Component;
+    spanCount:Component;
+    spanSum:Component;
     constructor(
         parrent: HTMLElement,
         private services: TServices,
@@ -16,21 +18,51 @@ export class CartBasket extends Component {
 
         this.btnDel = new Component(this.root,"input",["cart_basket_del"],null,["value","type"],["Убрать X","button"]);
 
+
         new Component(this.root,'p',['cenatovara'],data.good.price.toString()+" BYN");
+        this.spanSum = new Component(this.root, "span",["cart_basket_sum"], services.dbService.calcCostGood(data.count,data.good.price).toString()+" BYN");
+
+
+
 
         const divCount =  new Component(this.root,"div",["cart_basket_count"]);
         const btnInk = new Component(divCount.root,'img',['plus'],null,['src','alt'],['./assets/svg/plus.svg','icon']);
-        const spanCount = new Component(divCount.root,"span",["count_number"],data.count.toString());
+        
+        this.spanCount = new Component(divCount.root,"span",["count_number"],data.count.toString());
         const btnDec = new Component(divCount.root,'img',['minus'],null,['src','alt'],['./assets/svg/minus.svg','icon']);
         new Component(divCount.root, "div",["liniya"]);
+        btnDec.root.onclick = () =>{
+            this.changeCountGood(-1);
+        }
 
-        const divSum = new Component(this.root, "div",["cart_basket_sum"],data.good.price.toString()+" BYN");
+        btnInk.root.onclick = () =>{
+            this.changeCountGood(1);
+        }
+     
 
         this.btnDel.root.onclick = () =>{
             (this.btnDel.root as HTMLInputElement).disabled = true;
             this.delGoodFromBasket();
         }
     }
+
+
+    changeCountGood(grad: number){
+        const newCount = this.data.count + grad;
+        if (newCount<=0) return;
+
+        const newData = {} as TGoodBasket;
+        Object.assign(newData, this.data);
+        newData.count = newCount;
+
+        const user = this.services.authService.user;
+        this.services.dbService.changeGoodInBasket(user,newData).then(() => {
+            Object.assign(this.data, newData);
+            this.spanCount.root.innerHTML = this.data.count.toString();
+            this.spanSum.root.innerHTML = this.services.dbService.calcCostGood(this.data.count,this.data.good.price).toString()+" BYN";
+        })
+    }
+
     delGoodFromBasket() {
         const user = this.services.authService.user;
         this.services.dbService.delGoodFromBasket(user, this.data)

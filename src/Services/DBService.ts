@@ -1,21 +1,52 @@
 import {User } from "firebase/auth";
 import { FirebaseApp } from "firebase/app";
 import { Observer } from "./Observer";
-import { Firestore, getFirestore, orderBy, query, limit, where } from "firebase/firestore";
-import { collection,doc,getDoc,getDocs,setDoc } from "firebase/firestore"; 
+import { Firestore, getFirestore, orderBy, query, limit, where, Timestamp, Transaction, runTransaction } from "firebase/firestore";
+import { collection,doc,getDoc,getDocs,setDoc,addDoc } from "firebase/firestore"; 
 import {getDownloadURL, getStorage, ref} from "firebase/storage"
-import {TCriteria, TDataUser, TGood, TGoodBasket} from "../Types"
+import {TCriteria, TDataUser, TGood, TGoodBasket, TDataBasket} from "../Types"
 
 
 export class DBService extends Observer{
     private db: Firestore = getFirestore(this.DBFirestore);
 
     dataUser: TDataUser | null = null;
+    dataBasket:TDataBasket = {
+        summa:0,
+        percent:0,
+        allSumma:0,
+        count:0
+    };
 
     constructor(private DBFirestore: FirebaseApp){
         super();
     }
+
+    calcCostGood(count:number,price:number):number{
+        const cost = count * price;
+        return cost;
+    }
     
+    calcDataBasket(){
+        if(!this.dataUser) return;
+        let summa = 0;
+        let count = 0;
+        this.dataUser.basket.forEach((el => {
+            summa += el.count*el.good.price;
+            count += el.count;
+        }))
+        const percent = count >= 4 ? 15 : count >=2 ? 10 : 0;
+        const allSumma = summa - summa*percent/100;
+        
+        this.dataBasket.summa = summa;
+        this.dataBasket.percent = percent;
+        this.dataBasket.allSumma = allSumma;
+        this.dataBasket.count = count;
+    }
+
+
+
+
     async getDataUser(user: User|null):Promise<void>{
         if (user === null) return;
 
@@ -88,10 +119,31 @@ export class DBService extends Observer{
         await setDoc(doc(this.db,"users",user.uid),newUser)
         .then(()=>{
             this.dataUser = newUser;
+            this.calcDataBasket();
             this.dispatch('goodInBasket',goodBasket);
+            this.dispatch('changeDataBasket',this.dataBasket);
         })
         .catch(()=>{ })
     }
+
+    async changeGoodInBasket (user: User | null, goodBasket:TGoodBasket ): Promise<void>{
+        if (!user || !this.dataUser) return;
+
+        const index = this.dataUser.basket.findIndex(el => el.good.id === goodBasket.good.id);
+    
+        const newUser = {} as TDataUser;
+        Object.assign(newUser,this.dataUser);
+        newUser.basket[index] = goodBasket;
+
+        await setDoc(doc(this.db,"users",user.uid),newUser)
+        .then(()=>{
+            this.dataUser = newUser;
+            this.calcDataBasket();
+            this.dispatch('changeDataBasket',this.dataBasket);
+        })
+        .catch(()=>{ })
+    }
+
 
     async delGoodFromBasket (user: User | null, good:TGoodBasket ): Promise<void>{
         if (!user || !this.dataUser) return;
@@ -107,8 +159,53 @@ export class DBService extends Observer{
         await setDoc(doc(this.db,"users",user.uid),newUser)
         .then(()=>{
             this.dataUser = newUser;
+            this.calcDataBasket();
             this.dispatch("delGoodFromBasket",good.good.id);
+            this.dispatch('changeDataBasket',this.dataBasket);
         })
         .catch(()=>{ })
     }
-}
+    async addBasketInHistory (user: User | null ): Promise<void>{
+        if (!user || !this.dataUser) return;
+
+        // const index = this.dataUser.basket.findIndex(el => el.good.id === goodBasket.good.id);
+    
+        const newUser = {} as TDataUser;
+        Object.assign(newUser,this.dataUser);
+        newUser.basket = [];
+
+        const dataHistory = {
+            basket: this.dataUser.basket,
+            dataBasket: this.dataBasket,
+            data: Timestamp.now()
+        };
+
+        try{
+            await runTransaction(this.db,async(transaction) =>{
+                if (!this.dataUser) throw "БД отсутствует";
+               const result = this.dataUser.basket.map(async (el) =>{
+                    const goodRef = doc(this.db,"goods",el.good.id);
+                    const sfGood = await transaction.get(goodRef);
+
+                    if(!sfGood.exists()) throw "Good does not exist";
+                });
+                const userRef = doc(this.db, "users", user.uid)
+                transaction.update(userRef,{basket:[]});
+            });
+            await addDoc(collection(this.db,"users",user.uid, 'history'),dataHistory);
+            
+            this.dataUser.basket.forEach((el)=>{
+                this.dispatch("delGoodFromBasket",el.good.id);
+            })
+           
+            this.dataUser = newUser;
+            this.calcDataBasket();
+            this.dispatch('clearBasket');
+            this.dispatch('changeDataBasket',this.dataBasket);
+
+            console.log("transaction committed");
+            } catch (e) {
+                console.log("transaction failed ",e);
+            }
+        }
+    }

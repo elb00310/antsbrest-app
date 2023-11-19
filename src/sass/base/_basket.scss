@@ -15,6 +15,7 @@
 }
 
 .basket{
+
     background-color: #a7c4e5;
     width:1440px;
 }
@@ -29,10 +30,12 @@
     position: relative;
 }
 .baskshapdiv{
+    position: relative;
     border-radius: 15px;
     background-color: #fff;
-    width: 100%;
     height: 98px;
+    width: 1067px;
+    left: 189px;
 }
 .shap1{
     position: relative;
@@ -51,8 +54,15 @@
 }
 
 .pust{
+    top: -59px;
     text-align: center;
+    width: 1067px;
     padding: 150px;
+    border: 3px solid #4656a1;
+    border-radius: 18px;
+    left: 128px;
+    position: relative;
+    margin: 59px;
 }
 .empty,
 .empty2{
@@ -62,33 +72,28 @@
 }
 
 .knopoform{
-    left: 527px;
+    top: 23px;
+    left: 492px;
     margin: 50px;
     cursor: pointer;
     border: 1px solid black;
     padding: 10px;
     background-color: #6c9dd3;
     border-radius: 8px;
-    box-sizing: border-box;
     height: 70px;
     position: relative;
+    font-size: 30px;
+    font-family: "Comfortaa_bold";
 }
 
 .knopoform:hover {
     background-color: #d9e6f4;
   }
-.knopoform1{
-    font-size: 30px;
-    line-height: 50px;
-    display: inline-block;
-    font-family: "Comfortaa_bold";
-    color: black;
-    text-align: center;
-    height: 50px;
-}
+
 
 .cart_basket_skidka,
-.cart_basket_ok_sum{
+.cart_basket_ok_sum,
+.cart_basket_summa{
     position: relative;
     border: 1px solid black;
     height: 55px;
@@ -101,15 +106,16 @@
     font-family: "Dejavu_bold";
     font-size: 25px;
     position: relative;
-    top:30px;
+    top: 30px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: space-evenly;
 
 }
 
-
+.abz{
+    padding: 33px;
+}
 
 
 

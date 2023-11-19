@@ -1,70 +1,63 @@
 
 .profile{
-    position: relative;
     background-color: #a7c4e5;
-    width: 1440px;
-    height: 1274px;
-    overflow: hidden;
-    text-align: center;
     font-size: 30px;
-    color: #000;
     font-family: "Dejavu_reg";
+
   }
   .usinf{
     top: 506px;
     left: 24px;
-    width: 466px;
+    width: 500px;
     height: 89px;
     text-align: left;
-    position: absolute;
+    position: relative;
   }
   .usinf1,
   .usinf2{
-    font-weight:900;
-    position: absolute;
+    font-weight: 900;
+    position: relative;
     top: 50px;
-    left: 0;
+ 
     letter-spacing: 1.11px;
-    display: inline-block;
-    width: 122px;
-    height: 32px;
+
+    width: 100%;
+
   }
   .usinf1{
-    top: 0;
+    top: -62px;
     left: -6px;
-    text-align: center;
-    width: 98px;
-    height: 50px;
+    text-align: left;
+    width: 100%;
   }
   .proftext{
-    position: absolute;
-    top: 61px;
-    left: 535px;
+    position: relative;
+    top: -31px;
+    left: 503px;
     font-size: 55px;
     letter-spacing: 1.11px;
+    width: 419px;
     font-family: "Comfortaa_bold";
   }
   .zakazinf{
-    position: absolute;
-    top: 797px;
+    position: relative;
+    top: 648px;
     left: 522px;
     width: 441px;
     height: 102px;
   }
   .zakazinf1,
   .zakazinf2{
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     line-height: 150%;
   }
-  .zakazinf2{
-    top: 57px;
-  }
+
   .stat{
-    position: absolute;
-    top: 205px;
-    left: 732px;
+    position: relative;
+    top: -63px;
+    left: 721px;
     width: 422px;
     height: 59px;
     font-size: 40px;
@@ -82,46 +75,40 @@
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   }
   .statpict{
-    position: absolute;
-    top: 286px;
+    position: relative;
+    top: -25px;
     left: 517px;
     width: 851px;
     height: 498px;
     object-fit: cover;
   }
   .outButton{
-    position: absolute;
+    position: relative;
     cursor: pointer;
-    border: 0;
-    padding: 0;
     background-color: #6c9dd3;
     width: 13.19%;
-    top: 667px;
-    right: 76.46%;
-    left: 10.35%;
+    top: -54px;
+    left: -719px;
     border-radius: 8px;
     height: 55px;
     font-size: 20px;
     line-height: 50px;
-    display: inline-block;
     font-family: "Comfortaa_bold";
-    color: #000;
-    text-align: center;
     height: 50px;
   }
   .outButton:hover {
     background-color: #d9e6f4;
   }
   .hist{
-    top: 994px;
+    top: 102px;
     left: 72px;
     width: 1296px;
     height: 157px;
     font-size: 24px;
-    position: absolute;
+    position: relative;
   }
   .shapka{
-    position: absolute;
+    position: relative;
     top: 61px;
     left: 0;
     border-radius: 15px;
@@ -130,7 +117,7 @@
     overflow: hidden;
   }
   .shapkafon{
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     border-radius: 15px;
@@ -149,7 +136,7 @@
   .shapkatext3,
   .shapkatext4 {
     font-family: "Dejavu_bold";
-    position: absolute;
+    position: relative;
     letter-spacing: 1.11px;
     display: inline-block;
     width: 257px;
@@ -169,13 +156,71 @@
     left: 796px;
   }
   .histtex{
-    top: 0;
-    left: 10px;
+    margin: 14px;
+    top: 34px;
+    left: 23px;
     font-size: 30px;
     line-height: 150%;
-    position: absolute;
+    position: relative;
   }
 
+
+
+  .oobvod{
+    top: 34px;
+    left: 99px;
+    border-radius: 18px;
+    border: 3px solid black;
+    box-sizing: border-box;
+    width: 1233px;
+    position: relative;
+}
+.bbaskshapdiv{
+  font-size: 25px;
+  font-family: "Dejavu_bold";
+  border-radius: 15px;
+  background-color: #fff;
+  width: 1233px;
+  height: 98px;
+  position: relative;
+  left: 98px;
+  top: 32px;
+}
+.sshap{
+  position: relative;
+  top: 33px;
+  left: 33px;
+  width: 77px;
+}
+.sshap1{
+  position: relative;
+  top: 5px;
+  left: 286px;
+  width: 113px;
+}
+.sshap2 {
+  margin: 39px;
+  display: inline;
+  position: relative;
+  top: -25px;
+  left: 567px;
+}
+
+.pustpole{
+  height: 123px;
+}
+
+.ppust{
+  top: -26px;
+  text-align: center;
+  width: 1233px;
+  padding: 150px;
+  border: 3px solid #4656a1;
+  border-radius: 18px;
+  left: 41px;
+  position: relative;
+  margin: 59px;
+}
   
 @font-face { 
   font-family: "Comfortaa_reg"; 

@@ -1,3 +1,4 @@
+import { Timestamp } from "firebase/firestore";
 import { AuthService } from "./Services/AuthService";
 import { DBService } from "./Services/DBService";
 import { LogicService } from "./Services/LogicService";
@@ -34,4 +35,17 @@ export type TCriteria={
     category:string,
 sort:string,
 sortnastr:string
+};
+
+export type TDataBasket = {
+    summa:number,
+    percent:number,
+    allSumma:number,
+    count:number
+};
+
+export type dataHistory = {
+    basket: TGoodBasket[];
+    dataBasket: TDataBasket;
+    data: Timestamp;
 };
