@@ -24,6 +24,7 @@ const services={
     authService: new AuthService(),
     dbService: new DBService(DBFirestore)
 }
+
 class App{
     constructor(parrent: HTMLElement){
         const wrap = new Component(parrent, 'div', ['wrap']);

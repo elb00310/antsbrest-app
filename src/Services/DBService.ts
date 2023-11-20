@@ -4,7 +4,7 @@ import { Observer } from "./Observer";
 import { Firestore, getFirestore, orderBy, query, limit, where, Timestamp, Transaction, runTransaction } from "firebase/firestore";
 import { collection,doc,getDoc,getDocs,setDoc,addDoc } from "firebase/firestore"; 
 import {getDownloadURL, getStorage, ref} from "firebase/storage"
-import {TCriteria, TDataUser, TGood, TGoodBasket, TDataBasket} from "../Types"
+import {TCriteria, TDataUser, TGood, TGoodBasket, TDataBasket, dataHistory} from "../Types"
 
 
 export class DBService extends Observer{
@@ -197,15 +197,39 @@ export class DBService extends Observer{
             this.dataUser.basket.forEach((el)=>{
                 this.dispatch("delGoodFromBasket",el.good.id);
             })
-           
+            this.dispatch('addInHistory',dataHistory);
             this.dataUser = newUser;
             this.calcDataBasket();
             this.dispatch('clearBasket');
             this.dispatch('changeDataBasket',this.dataBasket);
-
+            this.calcCountDocsHistory(user);
+            alert("Спасибо! Ваш заказ оформлен!");
+            
             console.log("transaction committed");
             } catch (e) {
                 console.log("transaction failed ",e);
             }
+        }
+        async calcCountDocsHistory(user:User | null): Promise<void>{
+            if (!user || !this.dataUser) return;
+
+            const querySnapshot = await getDocs(collection(this.db,"users",user.uid,"history"));
+            const count = querySnapshot.docs.length;
+            
+            let summa =0;
+            querySnapshot.docs.forEach(el =>{
+                summa += el.data().dataBasket.allSumma;
+            })
+
+            this.dispatch('changeStat',count,summa);
+        }
+        async getAllHistory(user: User|null): Promise<dataHistory[]> {  
+            if (!user || !this.dataUser) return [];
+            const querySnapshot = await getDocs(collection(this.db,"users",user.uid,'history'));
+            const rez = querySnapshot.docs.map((doc)=>{
+                const data=doc.data() as dataHistory;
+                return data;
+            });
+            return rez;
         }
     }

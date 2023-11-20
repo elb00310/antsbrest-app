@@ -5,6 +5,8 @@ export class Cart extends Component {
     btnBasket:Component;
     constructor(parrent: HTMLElement, private services:TServices, private data: TGood){
         super(parrent, "div",["cart"]);
+        const user = this.services.authService.user;
+
         new Component(this.root,"img",['imggood'],null,["src","alt"],[data.url,data.name]);
         new Component(this.root,'p',['namegood'],data.name);
        
@@ -25,8 +27,12 @@ export class Cart extends Component {
 
 
         this.btnBasket.root.onclick = () => {
-            (this.btnBasket.root as HTMLInputElement).disabled = true;
-            this.addGoodInBasket();
+            if (user){
+                (this.btnBasket.root as HTMLInputElement).disabled = true;
+                this.addGoodInBasket();
+            } else{
+                alert("Вы не авторизированы в системе!");
+            }
         }
         services.dbService.addListener('delGoodFromBasket', (idGood) =>{
             if (idGood === data.id){

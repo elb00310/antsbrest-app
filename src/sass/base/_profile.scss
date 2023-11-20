@@ -40,13 +40,21 @@
     font-family: "Comfortaa_bold";
   }
   .zakazinf{
+    width: 900px;
+    display: flex;
     position: relative;
     top: 648px;
     left: 522px;
-    width: 441px;
     height: 102px;
+    flex-direction: column;
+    justify-content: space-around;
   }
-  .zakazinf1,
+  .zakazinf1{
+    position: relative;
+    top: 0;
+    left: 0;
+    line-height: 150%;
+  }
   .zakazinf2{
     position: relative;
     top: 0;
@@ -157,7 +165,7 @@
   }
   .histtex{
     margin: 14px;
-    top: 34px;
+    top: -18px;
     left: 23px;
     font-size: 30px;
     line-height: 150%;
@@ -167,12 +175,12 @@
 
 
   .oobvod{
-    top: 34px;
-    left: 99px;
+    top: -22px;
+    left: 94px;
     border-radius: 18px;
-    border: 3px solid black;
+    border: 7px solid white;
     box-sizing: border-box;
-    width: 1233px;
+    width: 1247px;
     position: relative;
 }
 .bbaskshapdiv{
@@ -180,22 +188,21 @@
   font-family: "Dejavu_bold";
   border-radius: 15px;
   background-color: #fff;
-  width: 1233px;
+  width: 1262px;
   height: 98px;
   position: relative;
-  left: 98px;
-  top: 32px;
+  left: 87px;
 }
 .sshap{
   position: relative;
   top: 33px;
-  left: 33px;
+  left: 81px;
   width: 77px;
 }
 .sshap1{
   position: relative;
   top: 5px;
-  left: 286px;
+  left: 310px;
   width: 113px;
 }
 .sshap2 {
@@ -204,6 +211,21 @@
   position: relative;
   top: -25px;
   left: 567px;
+}
+.sshap22 {
+  margin: 39px;
+  display: inline;
+  position: relative;
+  top: -25px;
+  left: 607px;
+}
+.sshap3 {
+  text-align: center;
+  width: 171px;
+  margin: 39px;
+  position: relative;
+  top: -106px;
+  left: 976px;
 }
 
 .pustpole{
