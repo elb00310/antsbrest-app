@@ -49,3 +49,15 @@ export type dataHistory = {
     dataBasket: TDataBasket;
     data: Timestamp;
 };
+
+export type TDataHistoryWithId = {
+    basket: TGoodBasket[];
+    dataBasket: TDataBasket;
+    data: Timestamp;
+    id: string;
+}
+export type TDataGraph = {
+    x: Date;
+    y:number;
+    y2:number;
+};

@@ -2,13 +2,15 @@ import { getDocs } from "firebase/firestore";
 import { Component } from "../Abstract/Component";
 import { CartHistory } from "../Common/CartHistory";
 // import {getAuth, signInWithPopup, GoogleAuthProvider, signOut} from "firebase/auth";
-import { TServices, dataHistory } from "../Types";
+import { TDataHistoryWithId, TServices, dataHistory } from "../Types";
+import { Graph } from "../Common/Graph";
 export class Profile extends Component{
     outButton:Component;
     //divClearHistory:Component;
     divHistory: Component;
     constructor(parrent:HTMLElement, private services:TServices){
         super(parrent, 'div', ['profile']);
+        
         const user = this.services.authService.user;
         const usinf = new Component(this.root,'div',['usinf']);
 
@@ -28,8 +30,13 @@ export class Profile extends Component{
         services.dbService.calcCountDocsHistory(user);
         const stat = new Component(this.root,'div',['stat']);
         new Component(stat.root,'p',['stattext'],'Статистика заказов');
-        new Component(this.root,'img',['statpict'],null,['src','alt'],['./assets/png/stat.png','icon']);
-        this.outButton = new Component(this.root, 'input',["outButton"],null,['type','value'],['button','Выйти']);
+      
+        const divGraph = new Component(this.root,'div',['statpict']);
+        const graph = new Graph(divGraph.root);
+       
+       
+       
+       this.outButton = new Component(this.root, 'input',["outButton"],null,['type','value'],['button','Выйти']);
         this.outButton.root.onclick = () =>{
             this.services.authService.outFromGoogle();
            };
@@ -43,11 +50,8 @@ export class Profile extends Component{
         new Component(baskshapdiv.root,'p',['sshap22'],'Скидка');
         new Component(baskshapdiv.root,'p',['sshap3'],'Стоимость <br /> со скидкой');
 
-    
-
         this.divHistory = new Component(this.root, "div",["history_all"]);
         const obvod = new Component(this.divHistory.root,'div',['oobvod']);
-
 
 
         services.dbService.getAllHistory(user).then((historys) =>{
@@ -59,7 +63,42 @@ export class Profile extends Component{
             this.putHistoryOnPage(obvod,[history as dataHistory]);
             
          })
+
+         services.dbService.getAllHistory(user).then((historys) =>{
+            const dataH = services.dbService.updateDataGraph(
+                historys
+            );
+            console.log(dataH);
+            graph.graphik.data.datasets[0].data = dataH.map(l => {
+                return {x:l.x,y:l.y}
+            })
+            graph.graphik.data.datasets[1].data = dataH.map(l => {
+                return {x:l.x,y:l.y2}
+            })
+            graph.graphik.update();
+           
+         });
+
+         services.dbService.addListener("addInHistory",(history) => {
+            const user = services.authService.user;
+            services.dbService.getAllHistory(user).then((historys) =>{
+                const dataH = services.dbService.updateDataGraph(
+                    historys
+                );
+                console.log(dataH);
+                graph.graphik.data.datasets[0].data = dataH.map(l => {
+                    return {x:l.x,y:l.y}
+                })
+                graph.graphik.data.datasets[1].data = dataH.map(l => {
+                    return {x:l.x,y:l.y2}
+                })
+                graph.graphik.update();
+            });
+
+           
+         })
     }
+    
     putHistoryOnPage(teg:Component,historys: dataHistory[]) {
         historys.forEach((history)=>{
             new CartHistory(teg.root, this.services,history);

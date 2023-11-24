@@ -4,7 +4,7 @@ import { Observer } from "./Observer";
 import { Firestore, getFirestore, orderBy, query, limit, where, Timestamp, Transaction, runTransaction } from "firebase/firestore";
 import { collection,doc,getDoc,getDocs,setDoc,addDoc } from "firebase/firestore"; 
 import {getDownloadURL, getStorage, ref} from "firebase/storage"
-import {TCriteria, TDataUser, TGood, TGoodBasket, TDataBasket, dataHistory} from "../Types"
+import {TCriteria, TDataUser, TGood, TGoodBasket, TDataBasket, dataHistory, TDataGraph} from "../Types"
 
 
 export class DBService extends Observer{
@@ -232,4 +232,34 @@ export class DBService extends Observer{
             });
             return rez;
         }
+        updateDataGraph(histories:dataHistory[]):TDataGraph[]{
+            const data = {} as Record<string, number>;
+            const data2 = {} as Record<string, number>;
+            histories.forEach((el) => {
+                let count = 0;
+                const dataString = el.data.toDate().toDateString();
+                if(data[dataString]){
+                    data[dataString] += el.dataBasket.allSumma;
+                    count += 1;
+                    data2[dataString] += count;
+                } else {
+                    data[dataString] = el.dataBasket.allSumma;
+                    count += 1;
+                    data2[dataString] = count;
+                }
+            });
+            const sortData = [];
+            for (const day in data){
+                sortData.push({
+                    x: new Date(day),
+                    y: data[day],
+                    y2:data2[day]
+                });
+            }
+            return sortData.sort(
+                (a,b) => a.x.getMilliseconds() - b.x.getMilliseconds()
+            );
+        }
+
+        
     }
