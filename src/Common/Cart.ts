@@ -25,11 +25,17 @@ export class Cart extends Component {
             }
         }
 
+        let isAdmin = false;
+        if (user && user.email == services.logicService.emailAdmin) {
+        isAdmin = true;
+        }
 
         this.btnBasket.root.onclick = () => {
             if (user){
+                if(!isAdmin){
                 (this.btnBasket.root as HTMLInputElement).disabled = true;
                 this.addGoodInBasket();
+                } 
             } else{
                 alert("Вы не авторизированы в системе!");
             }

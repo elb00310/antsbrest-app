@@ -15,8 +15,8 @@ export class Basket extends Component{
 
         new Component(this.root,'p',['titlebask'],'Моя корзина');
         const baskskidk = new Component(this.root,'div',['baskskidk']);
-        new Component(baskskidk.root,'p',['baskskidk1'],'Cкидка <b>10%</b> предоставляется за заказ от 2 до 3 услуг;');
-        new Component(baskskidk.root,'p',['baskskidk2'],'Cкидка <b>15%</b> предоставляется за заказ от 4 услуг.');
+        new Component(baskskidk.root,'p',['baskskidk1'],'Cкидка <b>10%</b> предоставляется за заказ от 2 до 3 ферм;');
+        new Component(baskskidk.root,'p',['baskskidk2'],'Cкидка <b>15%</b> предоставляется за заказ от 4 ферм.');
        
 
         
@@ -27,6 +27,7 @@ export class Basket extends Component{
         new Component(baskshapdiv.root,'p',['shap2'],'Стоимость');
 
         let isBasketClear = false;
+        console.log(services.dbService.dataUser);
         if (services.dbService.dataUser) {
             if (services.dbService.dataUser.basket.length > 0) isBasketClear = true;
         };
@@ -45,21 +46,32 @@ export class Basket extends Component{
         
         if(services.dbService.dataUser){
             services.dbService.dataUser.basket.forEach(el =>{
+                console.log(el);
                 this.putGoodsInBasket(this.obvod,el);
             })
         }
-
 
         const divDopInf = new Component(this.divBasket.root,'div',['divDopInf']);
         this.divSum =  new Component(divDopInf.root,"span",["cart_basket_summa"],"Cумма: " + services.dbService.dataBasket.summa + " BYN");
         this.divSkidka =  new Component(divDopInf.root,"span",["cart_basket_skidka"],"Скидка: " + services.dbService.dataBasket.percent + " %");
         this.divOkSum =  new Component(divDopInf.root,"span",["cart_basket_ok_sum"],"К оплате: " + services.dbService.dataBasket.allSumma + " BYN");
+       
+        const divtel = new Component(this.divBasket.root,'div',['tel']);
+        new Component(divtel.root,'p',['usinf31'],'Введите номер телефона:');
+        const telefon = new Component(divtel.root, 'input', ['usinf32'], null, ['placeholder'],['+375(29)8888888']);
 
+        
         const divOform = new Component(this.divBasket.root,'div',['divOform']);
         const knopoform=new Component(divOform.root,'input',['knopoform'],null,['value','type'],['Оформить заказ','button']);
+
         knopoform.root.onclick = () =>{
-            const user = services.authService.user;
-            services.dbService.addBasketInHistory(user);
+            const tel = (telefon.root as HTMLInputElement).value;
+            if(tel.trim()){
+                const user = services.authService.user;
+                services.dbService.addBasketInHistory(user,tel);
+                } else{
+                    alert('Укажите номер телефона!');
+                }
         }
 
 

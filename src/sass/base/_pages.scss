@@ -13,8 +13,8 @@
   .anim,
   .fon {
     position: absolute;
-    top: 102px;
-    left: 770px;
+    top: 227px;
+    left: 789px;
     width: 651px;
     height: 566px;
     object-fit: cover;
@@ -24,6 +24,7 @@
     left: 0;
     width: 1440px;
     height: 1171px;
+    opacity: 0.1;
   }
   .texthero,
   .titlehero{
@@ -38,10 +39,9 @@
   }
   .texthero {
     position: absolute;
-    width: 48.13%;
-    top: 191px;
+    width: 799px;
+    top: 227px;
     font-size: 40px;
-    letter-spacing: 0.03em;
     line-height: 59.5px;
     font-family: "Dejavu_reg";
     color: black;
@@ -50,13 +50,9 @@
   .btn {
     position: absolute;
     cursor: pointer;
-    border: 0;
-    padding: 0;
     background-color: #6c9dd3;
-    width: 20.9%;
-    top: 728px;
-    right: 39.58%;
-    left: 39.51%;
+    top: 883px;
+    left: 623px;
     border-radius: 8px;
     height: 102px;
   }
@@ -64,7 +60,6 @@
     background-color: #d9e6f4;
   }
   .textkn {
-    position:absolute;
     top: 31px;
     left: calc(50% - 158.5px);
     font-size: 36px;

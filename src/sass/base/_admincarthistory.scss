@@ -1,31 +1,32 @@
 
-.cart_history{
+.admin_cart_history{
     margin: 36px;
     font-family: "Dejavu_reg";
     position: relative;
     border: 1px solid black;
-    width: 1184px;
-    height: auto;
     font-size: 25px;
 }
-
-
-.cart_history_date{
+.user_name{
+margin: auto;
+}
+.user_email{
+margin: auto;
+}
+.a_cart_history_date{
     left: 23px;
     top: 27px;
     position: relative;
 }
 
-.cart_history_goods{
+.a_cart_history_goods{
     display: flex;
-    width: 198px;
     position: relative;
     top: 14px;
     left: 256px;
     flex-direction: column;
     text-align: center;
 }
-.cart_history_good{
+.a_cart_history_good{
     margin: 5px;
     border: 1px solid black;
     display: flex;
@@ -36,23 +37,37 @@
     flex-direction: column;
 }
 
-.cart_history_data{
+.a_cart_history_user{
+    background-color: #d9e6f4;
+    border-top: 1px solid black;
+    display: flex;
+    position: relative;
+    top: 29px;
+    flex-direction: column-reverse;
+}
+
+.a_cart_history_data{
     width: 761px;
     position: relative;
-    top: -119px;
+    top: -139px;
     left: 470px;
     display: flex;
     justify-content: space-evenly;
 }
 
+.a_itogo_hist{
+    font-weight: bold;
+}
 
-.lliniya{
-    position: relative;
-    top: 1.5px;
-    left: -0.5px;
-    border-top: 1px solid black;
-    width: 174px;
-    
+.cart_admin_del{
+    position: absolute;
+    cursor: pointer;
+    border: 1px solid black;
+    background-color: #6c9dd3;
+    top: 9px;
+    left: 1109px;
+    border-radius: 8px;
+    height: 35px;
 }
 
  @font-face { 

@@ -18,23 +18,21 @@
     color: #4656A1;
     text-align: center;
     font-family: Comfortaa;
-    font-size: 29px;
-    font-style: normal;
+    font-size: 24px;
     font-weight: 700;
-    line-height: normal;
     text-decoration-line: underline;
 }
 .imggood{
-    width: 229px;
-    height: 246px;
+    width: 230px;
+    height: 215px;
     flex-shrink: 0;
 }
 
 .korzbtn{
     position: relative;
-    left: 59px;
+    left: 63px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 5px;
     width: 107px;
     height: 41px;
     border-radius: 8px;
@@ -59,7 +57,7 @@
     display: flex;
     color: #000;
     outline-color: #FFFFFF;
-    font-size: 24px;
+    font-size: 20px;
     font-family: "Dejavu_reg";
     margin-top: 10px;
 }

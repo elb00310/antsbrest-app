@@ -7,7 +7,7 @@
     text-align: left;
     font-size: 20px;
     color: rgba(0, 0, 0, 0.5);
-    font-family: "Dejavu_reg";
+    font-family: "Comfortaa_reg";
     position: relative;
   }
   .infofut{
@@ -42,15 +42,18 @@
   }
   
   .fam {
-      position: absolute;
-      top: 27px;
-      left: 576px;
-      font-size: 23px;
-      line-height: 50px;
-      display: inline-block;
-      width: 316px;
-      height: 42px;
-    }
+    color: black;
+    position: absolute;
+    top: 41px;
+    left: 576px;
+    font-size: 23px;
+  }
+  .inst{
+    width: 55px;
+    top: 23px;
+    left: 1342px;
+    position: absolute;
+  }
     .footchild {
       position: absolute;
       top: 0.5px;
@@ -68,21 +71,21 @@
       font-style: normal; 
       font-weight: normal; 
       } 
-  @font-face {         
-      font-family: "Comfortaa_bold";  
-      src: url("./assets/fonts/Comfortaa-Bold.ttf") format("truetype"); 
-      font-style: normal; 
-      font-weight: normal; 
-      } 
-   @font-face { 
-      font-family: "Dejavu_reg"; 
-      src: url("./assets/fonts/DejaVuSans.ttf") format("truetype"); 
-      font-style: normal; 
-      font-weight: normal;         
-  } 
-  @font-face { 
-      font-family: "Dejavu_bold"; 
-      src: url("./assets/fonts/DejaVuSans-Bold.ttf") format("truetype"); 
-      font-style: normal; 
-      font-weight: normal;         
-  }
+  // @font-face {         
+  //     font-family: "Comfortaa_bold";  
+  //     src: url("./assets/fonts/Comfortaa-Bold.ttf") format("truetype"); 
+  //     font-style: normal; 
+  //     font-weight: normal; 
+  //     } 
+  //  @font-face { 
+  //     font-family: "Dejavu_reg"; 
+  //     src: url("./assets/fonts/DejaVuSans.ttf") format("truetype"); 
+  //     font-style: normal; 
+  //     font-weight: normal;         
+  // } 
+  // @font-face { 
+  //     font-family: "Dejavu_bold"; 
+  //     src: url("./assets/fonts/DejaVuSans-Bold.ttf") format("truetype"); 
+  //     font-style: normal; 
+  //     font-weight: normal;         
+  // }

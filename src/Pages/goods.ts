@@ -13,24 +13,25 @@ export class GoodsPage extends Component{
        
         const knopkisortfilt = new Component(this.root,'div',['knopkisortfilt']);
         const kopkfil = new Component(knopkisortfilt.root,'div',['kopkfil']);
-        const kn1=new Component(kopkfil.root,'input',['vsekat'],null,['type','value','data-category'],['button','Все категории','vsekat']);
-        const kn2=new Component(kopkfil.root,'input',['kard'],null,['type','value','data-category'],['button','Кардиология','Кардиология']);
-        const kn3=new Component(kopkfil.root,'input',['vakc'],null,['type','value','data-category'],['button','Вакцинация','Вакцинация']);
-        const kn4=new Component(kopkfil.root,'input',['derm'],null,['type','value','data-category'],['button','Дерматология','Дерматология']);
+        const kn1=new Component(kopkfil.root,'input',['vsekat'],null,['type','value','data-category'],['button','Все размеры','vsekat']);
+        const kn2=new Component(kopkfil.root,'input',['kard'],null,['type','value','data-category'],['button','Маленькая','Малая']);
+        const kn3=new Component(kopkfil.root,'input',['vakc'],null,['type','value','data-category'],['button','Средняя','Средняя']);
+        const kn4=new Component(kopkfil.root,'input',['derm'],null,['type','value','data-category'],['button','Большая','Большая']);
 
 
         const kopksort = new Component(knopkisortfilt.root,'div',['kopksort']);
         new Component(kopksort.root,'p',['sorttitle'],'Сортировать по: ');
 
         const knS1=new Component(kopksort.root,'input',['cena'],null,['type','value','data-sort'],['button','Цена','cena']);
-        const knS2=new Component(kopksort.root,'input',['naim'],null,['type','value','data-sort'],['button','Наименование','name']);
+        const knS2=new Component(kopksort.root,'input',['naim'],null,['type','value','data-sort'],['button','Цвет','color']);
        
 
         const kopksortnastr = new Component(knopkisortfilt.root,'div',['kopksort']);
         const Up=new Component(kopksortnastr.root,'input',['sortnastr'],null,['type','value','data-sortnastr'],['button','↑','up']);
         const Down=new Component(kopksortnastr.root,'input',['sortnastr'],null,['type','value','data-sortnastr'],['button','↓','down']);
     
-
+        console.log(services.dbService.dataUser);
+        
        (kn1.root as HTMLInputElement).disabled=true;
        (knS1.root as HTMLInputElement).disabled=true;
        (Up.root as HTMLInputElement).disabled=true;

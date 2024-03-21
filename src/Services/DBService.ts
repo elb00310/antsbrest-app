@@ -1,16 +1,17 @@
 import {User } from "firebase/auth";
 import { FirebaseApp } from "firebase/app";
 import { Observer } from "./Observer";
-import { Firestore, getFirestore, orderBy, query, limit, where, Timestamp, Transaction, runTransaction } from "firebase/firestore";
+import { Firestore, getFirestore, orderBy, query, limit, where, Timestamp, Transaction, runTransaction, deleteDoc, FieldPath, DocumentReference, documentId } from "firebase/firestore";
 import { collection,doc,getDoc,getDocs,setDoc,addDoc } from "firebase/firestore"; 
 import {getDownloadURL, getStorage, ref} from "firebase/storage"
-import {TCriteria, TDataUser, TGood, TGoodBasket, TDataBasket, dataHistory, TDataGraph} from "../Types"
+import {TCriteria, TDataUser, TGood, TGoodBasket, TDataBasket, dataHistory, AdmindataHistory, TDataGraph} from "../Types"
 
 
 export class DBService extends Observer{
     private db: Firestore = getFirestore(this.DBFirestore);
 
     dataUser: TDataUser | null = null;
+    cart: AdmindataHistory| null = null;
     dataBasket:TDataBasket = {
         summa:0,
         percent:0,
@@ -42,12 +43,14 @@ export class DBService extends Observer{
         this.dataBasket.percent = percent;
         this.dataBasket.allSumma = allSumma;
         this.dataBasket.count = count;
+
     }
 
 
 
 
     async getDataUser(user: User|null):Promise<void>{
+        
         if (user === null) return;
 
         const docRef = doc(this.db, "users", user.uid);
@@ -67,6 +70,7 @@ export class DBService extends Observer{
             this.dataUser = docSetSnap.data() as TDataUser || null;
 
         }
+        
     }
 
     async getAllGoods(criteria:TCriteria): Promise<TGood[]> {
@@ -76,8 +80,8 @@ export class DBService extends Observer{
         if(criteria.sort == "cena" && criteria.sortnastr=="up")  crit.push (orderBy("price","asc"));
         if(criteria.sort == "cena" && criteria.sortnastr=="down")  crit.push (orderBy("price","desc"));
 
-        if(criteria.sort == "name" && criteria.sortnastr=="up")  crit.push (orderBy("name","asc"));
-        if(criteria.sort == "name" && criteria.sortnastr=="down")  crit.push (orderBy("name","desc"));
+        if(criteria.sort == "color" && criteria.sortnastr=="up")  crit.push (orderBy("color","asc"));
+        if(criteria.sort == "color" && criteria.sortnastr=="down")  crit.push (orderBy("color","desc"));
 
 
         const q = query(collection(this.db,"goods"), ...crit);
@@ -147,7 +151,7 @@ export class DBService extends Observer{
 
     async delGoodFromBasket (user: User | null, good:TGoodBasket ): Promise<void>{
         if (!user || !this.dataUser) return;
-
+        
         const newBasket = this.dataUser.basket.filter(
             (el) => el.good.id !== good.good.id
             );
@@ -165,7 +169,10 @@ export class DBService extends Observer{
         })
         .catch(()=>{ })
     }
-    async addBasketInHistory (user: User | null ): Promise<void>{
+
+
+    async addBasketInHistory (user: User | null , tel:string): Promise<void>{
+        console.log(user);
         if (!user || !this.dataUser) return;
 
         // const index = this.dataUser.basket.findIndex(el => el.good.id === goodBasket.good.id);
@@ -177,7 +184,15 @@ export class DBService extends Observer{
         const dataHistory = {
             basket: this.dataUser.basket,
             dataBasket: this.dataBasket,
-            data: Timestamp.now()
+            data: Timestamp.now(),
+        };
+
+        const AdmindataHistory = {
+            basket: this.dataUser.basket,
+            dataBasket: this.dataBasket,
+            data: Timestamp.now(),
+            name:this.dataUser.name, 
+            phone:tel,
         };
 
         try{
@@ -193,16 +208,18 @@ export class DBService extends Observer{
                 transaction.update(userRef,{basket:[]});
             });
             await addDoc(collection(this.db,"users",user.uid, 'history'),dataHistory);
-            
+            await addDoc(collection(this.db,"admin_history"),AdmindataHistory);
             this.dataUser.basket.forEach((el)=>{
                 this.dispatch("delGoodFromBasket",el.good.id);
             })
             this.dispatch('addInHistory',dataHistory);
+            this.dispatch('AdmAddInHistory',AdmindataHistory);
             this.dataUser = newUser;
             this.calcDataBasket();
             this.dispatch('clearBasket');
             this.dispatch('changeDataBasket',this.dataBasket);
             this.calcCountDocsHistory(user);
+            this.AdminCalcCountDocsHistory(user);
             alert("Спасибо! Ваш заказ оформлен!");
             
             console.log("transaction committed");
@@ -210,6 +227,7 @@ export class DBService extends Observer{
                 console.log("transaction failed ",e);
             }
         }
+
         async calcCountDocsHistory(user:User | null): Promise<void>{
             if (!user || !this.dataUser) return;
 
@@ -223,6 +241,22 @@ export class DBService extends Observer{
 
             this.dispatch('changeStat',count,summa);
         }
+
+        async AdminCalcCountDocsHistory(user:User | null): Promise<void>{
+            if (!user || !this.dataUser) return;
+
+            const querySnapshot = await getDocs(collection(this.db,"admin_history"));
+            const count = querySnapshot.docs.length;
+            
+            let summa =0;
+            querySnapshot.docs.forEach(el =>{
+                summa += el.data().dataBasket.allSumma;
+            })
+
+            this.dispatch('AdmChangeStat',count,summa);
+        }
+
+
         async getAllHistory(user: User|null): Promise<dataHistory[]> {  
             if (!user || !this.dataUser) return [];
             const querySnapshot = await getDocs(collection(this.db,"users",user.uid,'history'));
@@ -232,7 +266,47 @@ export class DBService extends Observer{
             });
             return rez;
         }
+
+        async AdminGetAllHistory(user: User|null): Promise<AdmindataHistory[]> {  
+            if (!user || !this.dataUser) return [];
+            const querySnapshot = await getDocs(collection(this.db,"admin_history"));
+            const rez = querySnapshot.docs.map((doc)=>{
+                const data=doc.data() as AdmindataHistory;
+                return data;
+            });
+            return rez;
+        }
+
         updateDataGraph(histories:dataHistory[]):TDataGraph[]{
+            const data = {} as Record<string, number>;
+            const data2 = {} as Record<string, number>;
+            histories.forEach((el) => {
+                let count = 0;
+                const dataString = el.data.toDate().toDateString();
+                if(data[dataString]){
+                    data[dataString] += el.dataBasket.allSumma;
+                    count += 1;
+                    data2[dataString] += count;
+                } else {
+                    data[dataString] = el.dataBasket.allSumma;
+                    count += 1;
+                    data2[dataString] = count;
+                }
+            });
+            const sortData = [];
+            for (const day in data){
+                sortData.push({
+                    x: new Date(day),
+                    y: data[day],
+                    y2:data2[day]
+                });
+            }
+            return sortData.sort(
+                (a,b) => a.x.getMilliseconds() - b.x.getMilliseconds()
+            );
+        }
+
+        AdminUpdateDataGraph(histories:AdmindataHistory[]):TDataGraph[]{
             const data = {} as Record<string, number>;
             const data2 = {} as Record<string, number>;
             histories.forEach((el) => {

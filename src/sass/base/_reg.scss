@@ -2,7 +2,19 @@
 .title_reg{
     position: absolute;
     top: 124px;
-    left: calc(50% + 99px);
+    left: 906px;
+  }
+  .title_reg2{
+    text-align: center;
+    font-size: 35px;
+    position: absolute;
+    top: 217px;
+    left: 882px;
+    width: 470px;
+  }
+  .form{
+    position: absolute;
+    top: 313px;
   }
   .dogpict{
     position: absolute;
@@ -10,6 +22,27 @@
     left: 0;
     width: 739px;
     height: 1112px;
+    object-fit: cover;
+  }
+  .reg2{
+    position: absolute;
+    top: 0px;
+    width: 780px;
+    height: 380px;
+    object-fit: cover;
+  }
+  .reg3{
+    position: absolute;
+    top: 823px;
+    width: 780px;
+    height: 380px;
+    object-fit: cover;
+  }
+  .reg1{
+    position: absolute;
+    top: 410px;
+    width: 780px;
+    height: 380px;
     object-fit: cover;
   }
   .reg{
@@ -27,19 +60,14 @@
     position: absolute;
     cursor: pointer;
     border: 0;
-    padding: 0;
     background-color: #6c9dd3;
-    width: 20.9%;
-    top: 509px;
-    right: 17.43%;
-    left: 61.67%;
+    top: 335px;
+    width: 219px;
+    left: 1012px;
     border-radius: 8px;
     height: 102px;
     font-family: "Comfortaa_reg";
-    color: #000;
-    text-align: center;
     font-size: 40px;
-    line-height: 40px;
   }
   .regbutton:hover {
     background-color: #d9e6f4;

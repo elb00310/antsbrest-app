@@ -26,10 +26,11 @@ export class CartBasket extends Component {
 
 
         const divCount =  new Component(this.root,"div",["cart_basket_count"]);
-        const btnInk = new Component(divCount.root,'img',['plus'],null,['src','alt'],['./assets/svg/plus.svg','icon']);
+        const btnDec = new Component(divCount.root,'img',['minus'],null,['src','alt'],['./assets/svg/minus.svg','icon']);
         
         this.spanCount = new Component(divCount.root,"span",["count_number"],data.count.toString());
-        const btnDec = new Component(divCount.root,'img',['minus'],null,['src','alt'],['./assets/svg/minus.svg','icon']);
+
+        const btnInk = new Component(divCount.root,'img',['plus'],null,['src','alt'],['./assets/svg/plus.svg','icon']);
         new Component(divCount.root, "div",["liniya"]);
         btnDec.root.onclick = () =>{
             this.changeCountGood(-1);

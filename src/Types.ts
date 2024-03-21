@@ -41,13 +41,22 @@ export type TDataBasket = {
     summa:number,
     percent:number,
     allSumma:number,
-    count:number
+    count:number,
 };
 
 export type dataHistory = {
     basket: TGoodBasket[];
     dataBasket: TDataBasket;
     data: Timestamp;
+};
+
+export type AdmindataHistory = {
+    basket: TGoodBasket[];
+    dataBasket: TDataBasket;
+    data: Timestamp;
+    name:string;
+    phone:string;
+    id:string;
 };
 
 export type TDataHistoryWithId = {

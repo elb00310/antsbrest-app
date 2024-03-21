@@ -15,25 +15,22 @@
 
 .cart_basket_name{
 position: absolute;
-top: 27px;
+top: 10px;
 left: 10px;
 text-align: center;
 display: inline-block;
-width: 338px;
+width: 370px;
 height: 45px;
 }
 .cart_basket_del{
     position: absolute;
     cursor: pointer;
     border: 1px solid black;
-    padding: 0;
     background-color: #6c9dd3;
     width: 11.9%;
     top: 78px;
-    right: 79.25%;
-    left: 8.85%;
+    left: 131px;
     border-radius: 8px;
-    box-sizing: border-box;
     height: 44px;
     font-size: 20px;
 }
@@ -49,6 +46,7 @@ height: 45px;
     height: 44px;
     flex-wrap: wrap;
     flex-direction: column-reverse;
+    align-content: space-around;
 }
 .cart_basket_sum{
     position: absolute;

@@ -1,12 +1,12 @@
 
 
 .icon {
-    top: 16px;
-    left: 62px;
-    width: 117px;
-    height: 100px;
-    object-fit: cover;
-    position: absolute;
+  top: 12px;
+  left: 62px;
+  height: 127px;
+  object-fit: cover;
+  position: absolute;
+  cursor: pointer;
   }
 .title{
     font-family: "Comfortaa_bold";
@@ -26,7 +26,7 @@
     width: 200px;
     height: 134px;
     text-align: left;
-    font-size: 23px;
+    font-size: 20px;
     position: absolute;
     color:black;
 }
@@ -91,6 +91,14 @@
     left: 91.91%;
     top: 50px;
   }
+  .icon3 {
+    position: absolute;
+    height: 65px;
+    width: 64px;
+    bottom: 31.94%;
+    left: 1121px;
+    top: 50px;
+}
 .header{
     position: relative;
     background-color: #d9e6f4;

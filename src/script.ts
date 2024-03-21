@@ -7,6 +7,7 @@ import { GoodsPage } from './Pages/goods';
 import { Basket } from './Pages/basket';
 import { Profile } from './Pages/profile';
 import { Reg } from './Pages/reg';
+import { Stat } from './Pages/stat';
 import { Router } from './Common/Router';
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from '../configFB';
@@ -26,9 +27,9 @@ const services={
 }
 
 class App{
-    constructor(parrent: HTMLElement){
+        constructor(parrent: HTMLElement){
         const wrap = new Component(parrent, 'div', ['wrap']);
-        new Header(wrap.root,services);
+       new Header(wrap.root,services);
         const main =new Component(wrap.root, "main");
         const links = {
             '#': new Pages(main.root,services),
@@ -36,26 +37,28 @@ class App{
             '#basket':new Basket(main.root,services),
             '#profile':new Profile(main.root,services),
             '#reg':new Reg(main.root,services),
+            '#stat':new Stat(main.root,services),
         }
-        
         new Router (links,services);
         new Footer(wrap.root);
     }
 }
+
 declare global{
     interface Window{
         app: App;
     }
 }
+
 const auth = getAuth();
-onAuthStateChanged(auth,(user)=>{
-    services.authService.user = user;
-    services.dbService
-    .getDataUser(user)
-    .then(() => {
-        if (!window.app) window.app=new App(document.body);
-    })
-    .catch((error) =>{
-        console.log(error);
-    });
+onAuthStateChanged(auth, (user) => {
+  services.authService.user = user;
+  services.dbService
+   .getDataUser(user)
+   .then(() => {
+    if (!window.app) window.app = new App(document.body);
+   })
+   .catch ((error) => {
+    console.log(error);
+   });
 });
