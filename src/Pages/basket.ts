@@ -21,7 +21,7 @@ export class Basket extends Component{
 
         
        const baskshapdiv = new Component(this.root,'div',['baskshapdiv']);
-        new Component(baskshapdiv.root,'p',['shap1'],'Услуги');
+        new Component(baskshapdiv.root,'p',['shap1'],'Товары');
         new Component(baskshapdiv.root,'p',['shap2'],'Цена');
         new Component(baskshapdiv.root,'p',['shap2'],'Количество');
         new Component(baskshapdiv.root,'p',['shap2'],'Стоимость');

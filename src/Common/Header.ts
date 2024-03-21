@@ -6,7 +6,7 @@ export class Header extends Component{
         constructor(parrent: HTMLElement, private services:TServices){
         super(parrent, 'div', ['header']);
         
-        const logo = new Component(this.root, 'img', ["icon"],null,['src','alt'],['./assets/png/logo.png','icon'] );
+        const logo = new Component(this.root, 'img', ["icon"],null,['src','alt'],['./assets/png/logotip.png','icon'] );
 
         new Component(this.root,'p',['title'],'Ants Brest');
 
