@@ -1,6 +1,6 @@
 {
-    "name": "vetclinic-app",
-    "description": "Приложение для заказа ветеринарных услуг",
+    "name": "ferm-app",
+    "description": "Приложение для заказа муравьиных ферм",
     "private": true,
     "author": "elb00310@g.bstu.by",
     "scripts": {

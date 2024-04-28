@@ -17,7 +17,7 @@ export class Stat extends Component{
 
         new Component(usinf.root,'p',['usinf1'],'Имя: ' + user?.displayName);
         new Component(usinf.root,'p',['usinf2'],'Почта: '+ user?.email);
-        new Component(this.root,'p',['a_proftext'],'Статистика администратора');
+        new Component(this.root,'p',['a_proftext'],'Панель администратора');
 
         const zakazinf = new Component(this.root,'div',['zakazinf']);
         const spanKolvo=new Component(zakazinf.root,'span',['zakazinf1'],'Общее количество заказов: ');

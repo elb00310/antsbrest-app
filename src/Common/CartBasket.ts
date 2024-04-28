@@ -50,8 +50,7 @@ export class CartBasket extends Component {
 
     changeCountGood(grad: number){
         const newCount = this.data.count + grad;
-        if (newCount<=0) return;
-
+        if (newCount<=0 || newCount>10 ) return;
         const newData = {} as TGoodBasket;
         Object.assign(newData, this.data);
         newData.count = newCount;
